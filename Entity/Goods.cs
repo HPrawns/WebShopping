@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DB
+namespace Entity
 {
-    public class Class1
+    [Serializable]
+    public class Goods
     {
+        [DataContextAttribute("id")]
+        public string id { get; set; }
     }
 }
