@@ -8,3 +8,8 @@ E:\GIT\WebShopping\WebShopping\bin\WebShopping.pdb
 E:\GIT\WebShopping\WebShopping\obj\Debug\Web.csprojResolveAssemblyReference.cache
 E:\GIT\WebShopping\WebShopping\obj\Debug\WebShopping.dll
 E:\GIT\WebShopping\WebShopping\obj\Debug\WebShopping.pdb
+D:\开发\GIT\WebShopping\WebShopping\bin\WebShopping.dll
+D:\开发\GIT\WebShopping\WebShopping\bin\WebShopping.pdb
+D:\开发\GIT\WebShopping\WebShopping\obj\Debug\Web.csprojResolveAssemblyReference.cache
+D:\开发\GIT\WebShopping\WebShopping\obj\Debug\WebShopping.dll
+D:\开发\GIT\WebShopping\WebShopping\obj\Debug\WebShopping.pdb

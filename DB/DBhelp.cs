@@ -20,7 +20,7 @@ namespace DB
         /// 读取数据库 返沪datable类型
         /// </summary>
         /// <returns></returns>
-        private DataTable GetTable(string str)
+        public DataTable GetTable(string str)
         {
             using (MySqlConnection connection = new MySqlConnection(constr))
             {

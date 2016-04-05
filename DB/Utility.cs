@@ -16,7 +16,7 @@ namespace DB
         /// </summary>
         /// <param name="obj">实体</param>
         /// <param name="row">数据表一行数据</param>
-        public static void converttoentity(object obj, DataRow row)
+        public void ConvertToEntity(object obj, DataRow row)
         {
             ///得到obj的类型
             Type type = obj.GetType();

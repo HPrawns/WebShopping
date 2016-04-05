@@ -66,7 +66,7 @@
 
         #pagediv {
             border: 1px solid red;
-            width: 1400px;
+            width: 1200px;
             font: 14px/30px Helvetica, Verdana, sans-serif;
             height: 25px;
             display: block;
@@ -97,6 +97,25 @@
             color: white;
             background-color: #008BED;
         }
+
+        ._inputdefault {
+            width: 180px;
+            font: 16px/30px Helvetica, Verdana, sans-serif;
+            height: 28px;
+            padding: 6px 12px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            /*color: #777;
+            opacity: 1;*/
+            transition: box-shadow 500ms;
+        }
+
+            ._inputdefault:focus {
+                -webkit-box-shadow: 0 0 6px #00B4E1;
+                -moz-box-shadow: 0 0 6px #00B4E1;
+                box-shadow: 0 0 6px #00B4E1;
+            }
     </style>
     <script type="text/javascript">
         $(function () {
@@ -178,7 +197,7 @@
     <a href="javascript:void(0)" class="_btn_a">请点击</a>
 
     <a href="javascript:void(0)" class="_link_a">链接标签</a>
-    <div style="width: 1400px">
+    <div style="width: 1210px">
         <table class="_data_table" id="_datatable">
             <thead>
                 <tr>
@@ -226,5 +245,6 @@
         </div>-->
     </div>
 
+    <input class="_inputdefault"    placeholder="常规文本框"/>
 </body>
 </html>
