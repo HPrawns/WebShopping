@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "WebShopping\Web.csproj", "{EDECBF9D-7678-467C-A06D-428BB0A48EB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{BA49CDFA-6796-4C5A-A47A-2EFB47F9647B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB", "DB\DB.csproj", "{8C035C8D-2C0F-47E2-B5EE-4039F0FA2264}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "Entity\Entity.csproj", "{DE495E63-65B5-464A-867A-4625E3ADA220}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDECBF9D-7678-467C-A06D-428BB0A48EB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDECBF9D-7678-467C-A06D-428BB0A48EB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDECBF9D-7678-467C-A06D-428BB0A48EB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDECBF9D-7678-467C-A06D-428BB0A48EB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA49CDFA-6796-4C5A-A47A-2EFB47F9647B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA49CDFA-6796-4C5A-A47A-2EFB47F9647B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA49CDFA-6796-4C5A-A47A-2EFB47F9647B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA49CDFA-6796-4C5A-A47A-2EFB47F9647B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C035C8D-2C0F-47E2-B5EE-4039F0FA2264}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C035C8D-2C0F-47E2-B5EE-4039F0FA2264}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C035C8D-2C0F-47E2-B5EE-4039F0FA2264}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C035C8D-2C0F-47E2-B5EE-4039F0FA2264}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE495E63-65B5-464A-867A-4625E3ADA220}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE495E63-65B5-464A-867A-4625E3ADA220}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE495E63-65B5-464A-867A-4625E3ADA220}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE495E63-65B5-464A-867A-4625E3ADA220}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

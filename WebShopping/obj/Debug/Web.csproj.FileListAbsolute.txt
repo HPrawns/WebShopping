@@ -1,0 +1,5 @@
+D:\开发\sheji\WebShopping\WebShopping\bin\WebShopping.dll
+D:\开发\sheji\WebShopping\WebShopping\bin\WebShopping.pdb
+D:\开发\sheji\WebShopping\WebShopping\obj\Debug\Web.csprojResolveAssemblyReference.cache
+D:\开发\sheji\WebShopping\WebShopping\obj\Debug\WebShopping.dll
+D:\开发\sheji\WebShopping\WebShopping\obj\Debug\WebShopping.pdb
