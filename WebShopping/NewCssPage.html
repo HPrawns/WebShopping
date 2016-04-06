@@ -41,7 +41,7 @@
             border: 1px solid #00809F;
         }
 
-            ._data_table thead td {
+            ._data_table thead th td {
                 border: 1px solid #00809F;
                 text-align: center;
             }
@@ -119,33 +119,39 @@
     </style>
     <script type="text/javascript">
         $(function () {
-            var goods = new JqTable("_datatable");
+            var goods = new JqTable("_datatable_goods");
             goods.PageInit();
+            goods.LoadData();
         });
         function JqTable(tableid) {
             this.tableid = tableid;
             this.table = $("#" + tableid);
             this.PageIndex = 1;
             this.PageSize = 15;
+            this.count = 0;
+            this.DataArr = [];
         }
         //分页分装
         JqTable.prototype.PageInit = function () {
-            var datacount = 123;      //总数据条数
-            var pagecount = parseInt(datacount / this.PageSize);     //总页数
-
+            var pagecount = parseInt(this.count / this.PageSize) + 1;     //总页数
             var divCont = $("<div id='pagediv'>");
             divCont.insertAfter(this.table);
             //this.table.append(divCont);
             var html = '<a href="javascript:void(0)" class="_pageindex_a" indextype="First"  >首页</a>' +
-                               '<a href="javascript:void(0)" class="_pageindex_a" indextype="Prev">上一页</a>' +
-                               '<a href="javascript:void(0)" class="_pageindex_a _pageindex_a_click" indextype="1" indexnumber="1">1</a>' +
-                               '<a href="javascript:void(0)" class="_pageindex_a" indextype="2" indexnumber="2">2</a>' +
-                               '<a href="javascript:void(0)" class="_pageindex_a" indextype="3" indexnumber="3">3</a>' +
-                               '<a href="javascript:void(0)" class="_pageindex_a" indextype="4" indexnumber="4">4</a>' +
-                                ' <span style="float: left">.........</span>' +
-                             '<a href="javascript:void(0)" class="_pageindex_a" indextype="' + pagecount + '"  indexnumber="' + pagecount + '">' + pagecount + '</a>' +
-                             '<a href="javascript:void(0)" class="_pageindex_a" indextype="Next">下一页</a>' +
-                             '<a href="javascript:void(0)" class="_pageindex_a" indextype="Last" indexnumber="' + pagecount + '">尾页</a>';
+                               '<a href="javascript:void(0)" class="_pageindex_a" indextype="Prev">上一页</a>';
+            for (var q = 0; q < pagecount; q++) {
+                html += '<a href="javascript:void(0)" class="_pageindex_a " indextype="' + (q + 1) + '" indexnumber="' + (q + 1) + '">' + (q + 1) + '</a>';
+                //'<a href="javascript:void(0)" class="_pageindex_a" indextype="2" indexnumber="2">2</a>' +
+                //'<a href="javascript:void(0)" class="_pageindex_a" indextype="3" indexnumber="3">3</a>' +
+                //'<a href="javascript:void(0)" class="_pageindex_a" indextype="4" indexnumber="4">4</a>' +
+                // ' <span style="float: left">.........</span>';
+            }
+            if (pagecount >= 5) {
+                html += ' <span style="float: left">.........</span>';
+                html += '<a href="javascript:void(0)" class="_pageindex_a" indextype="' + pagecount + '"  indexnumber="' + pagecount + '">' + pagecount + '</a>';
+            }
+            html += '<a href="javascript:void(0)" class="_pageindex_a" indextype="Next">下一页</a>' +
+            '<a href="javascript:void(0)" class="_pageindex_a" indextype="Last" >尾页</a>';
             divCont.append(html);
             var pagediv = $("#pagediv");
             var _datatable = this;
@@ -157,7 +163,45 @@
         //加载数据
         JqTable.prototype.LoadData = function (pageindex) {
             var _datatable = this;
+            $.ajax({
+                type: "POST",
+                //contentType: "application/json;charset=utf-8",// 这句可不要忘了。
+                url: "Common/GoodsCommon.ashx",
+                dataType: "JSON",
+                data: { action: "query", data: "" },
+                async: false,
+                success: function (e) {
+                    if (e.success) {
+                        _datatable.count = e.count;
+                        _datatable.DataArr = e.content;
+                    }
+
+                },
+                error: function (e) { }
+            });
+            this.BindData();
+            //console.log(_datatable.DataArr);
+
             NowIndexClass("pagediv", pageindex);
+        }
+        JqTable.prototype.BindData = function () {
+            var _datatable = this;
+            var ths = $(_datatable.table).find("thead tr th");
+            var tbodys = $(_datatable.table).find("tbody");
+            tbodys.empty();
+            for (var i = 0; i < _datatable.DataArr.length; i++) {
+                var htmls = "<tr rownumber='" + i + "'>";
+                var item = _datatable.DataArr[i];
+                for (var j = 0; j < ths.length; j++) {
+                    htmls += "<td>" + item[$(ths[j]).attr("name")] + "</td>";
+                }
+                //console.log(item["gid"]);
+                htmls += "</tr>";
+                $(tbodys).append(htmls);
+                htmls = "";
+            }
+
+
         }
         //首页
         JqTable.prototype.onFirst = function (obj) {
@@ -194,40 +238,20 @@
     </script>
 </head>
 <body>
-    <a href="javascript:void(0)" class="_btn_a">请点击</a>
+    <a href="javascript:void(0)" class="_btn_a" onclick="$_Ajax()">请点击</a>
 
     <a href="javascript:void(0)" class="_link_a">链接标签</a>
     <div style="width: 1210px">
-        <table class="_data_table" id="_datatable">
+        <table class="_data_table" id="_datatable_goods">
             <thead>
                 <tr>
-                    <td>序号
-                    </td>
-                    <td>姓名
-                    </td>
-                    <td>年龄
-                    </td>
-                    <td>性别
-                    </td>
-                    <td>其他数据以
-                    </td>
+                    <th name="gid">序号</th>
+                    <th name="goodsname">商品名称</th>
+                    <th name="goodscode">商品编码</th>
+                    <th name="goodsprice">商品价格</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>张三</td>
-                    <td>189</td>
-                    <td>难</td>
-                    <td>书籍阿斯达的</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>张三</td>
-                    <td>189</td>
-                    <td>难</td>
-                    <td>书籍阿斯达的</td>
-                </tr>
             </tbody>
         </table>
         <!--    <div id="pagediv">
@@ -245,6 +269,6 @@
         </div>-->
     </div>
 
-    <input class="_inputdefault"    placeholder="常规文本框"/>
+    <input class="_inputdefault" placeholder="常规文本框" />
 </body>
 </html>

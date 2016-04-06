@@ -13,3 +13,12 @@ D:\开发\GIT\WebShopping\WebShopping\bin\WebShopping.pdb
 D:\开发\GIT\WebShopping\WebShopping\obj\Debug\Web.csprojResolveAssemblyReference.cache
 D:\开发\GIT\WebShopping\WebShopping\obj\Debug\WebShopping.dll
 D:\开发\GIT\WebShopping\WebShopping\obj\Debug\WebShopping.pdb
+E:\GIT\WebShopping\WebShopping\bin\BLL.dll
+E:\GIT\WebShopping\WebShopping\bin\Entity.dll
+E:\GIT\WebShopping\WebShopping\bin\DB.dll
+E:\GIT\WebShopping\WebShopping\bin\BLL.pdb
+E:\GIT\WebShopping\WebShopping\bin\Entity.pdb
+E:\GIT\WebShopping\WebShopping\bin\DB.pdb
+E:\GIT\WebShopping\WebShopping\bin\Newtonsoft.Json.dll
+E:\GIT\WebShopping\WebShopping\bin\Newtonsoft.Json.pdb
+E:\GIT\WebShopping\WebShopping\bin\Newtonsoft.Json.xml

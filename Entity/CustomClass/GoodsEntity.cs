@@ -10,10 +10,16 @@ namespace Entity.CustomClass
     /// <summary>
     /// 商品类自定义
     /// </summary>
-    public class GoodsEntity:Goods
+    public class GoodsEntity : Goods
     {
 
-        public int PageIndex { get; set; }
+        private int pageindex;
+
+        public int PageIndex
+        {
+            get { return pageindex < 0 ? 0 : pageindex; }
+            set { pageindex = value; }
+        }
         public int PageSize { get; set; }
     }
 }

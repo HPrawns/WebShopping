@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Entity;
+using Entity.CustomClass;
+using BLL.Service;
 
 namespace WebShopping
 {
@@ -12,8 +14,7 @@ namespace WebShopping
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Goods d = new Goods();
-            
+
         }
     }
 }

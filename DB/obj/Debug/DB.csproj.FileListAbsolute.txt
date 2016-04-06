@@ -1,1 +1,8 @@
 D:\开发\GIT\WebShopping\DB\obj\Debug\DB.csprojResolveAssemblyReference.cache
+E:\GIT\WebShopping\DB\obj\Debug\DB.csprojResolveAssemblyReference.cache
+E:\GIT\WebShopping\DB\bin\Debug\DB.dll
+E:\GIT\WebShopping\DB\bin\Debug\DB.pdb
+E:\GIT\WebShopping\DB\bin\Debug\Entity.dll
+E:\GIT\WebShopping\DB\bin\Debug\Entity.pdb
+E:\GIT\WebShopping\DB\obj\Debug\DB.dll
+E:\GIT\WebShopping\DB\obj\Debug\DB.pdb

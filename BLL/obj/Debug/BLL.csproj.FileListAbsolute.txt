@@ -1,0 +1,9 @@
+E:\GIT\WebShopping\BLL\bin\Debug\BLL.dll
+E:\GIT\WebShopping\BLL\bin\Debug\BLL.pdb
+E:\GIT\WebShopping\BLL\bin\Debug\DB.dll
+E:\GIT\WebShopping\BLL\bin\Debug\Entity.dll
+E:\GIT\WebShopping\BLL\bin\Debug\DB.pdb
+E:\GIT\WebShopping\BLL\bin\Debug\Entity.pdb
+E:\GIT\WebShopping\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+E:\GIT\WebShopping\BLL\obj\Debug\BLL.dll
+E:\GIT\WebShopping\BLL\obj\Debug\BLL.pdb
