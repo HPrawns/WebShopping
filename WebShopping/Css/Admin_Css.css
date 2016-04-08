@@ -1,0 +1,36 @@
+﻿
+/*顶部菜单*/
+.slideMenu {
+    width: 99%;
+    margin: 0 auto;
+    border: 1px solid #34495e;
+    background-color: #34495e;
+    height: 65px;
+    border-radius: 2px;
+}
+
+.slideMenu_ul {
+    margin: 12px 0 0 12px;
+    height: 40px;
+}
+
+.slideMenu li {
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    width: 120px;
+    text-align: center;
+    color: white;
+    background-color: #2980b9;
+    margin-left: 2px;
+}
+
+    .slideMenu li a {
+        color: white;
+    }
+
+.hrdiv {
+    border-bottom: 4px solid #1abc9c;
+    float: left;
+    position: absolute;
+}

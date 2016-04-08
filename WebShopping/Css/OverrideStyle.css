@@ -1,0 +1,59 @@
+﻿/*
+    重写源生的一些控件的样式
+    */
+/*默认文本框的样式*/
+._input_default {
+    width: 180px;
+    font: 16px/30px Helvetica, Verdana, sans-serif;
+    height: 28px;
+    padding: 6px 12px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: box-shadow 500ms;
+}
+
+    ._input_default:focus {
+        -webkit-box-shadow: 0 0 3px #00B4E1;
+        -moz-box-shadow: 0 0 3px #00B4E1;
+        box-shadow: 0 0 3px #00B4E1;
+    }
+
+.input_login {
+    width: 225px;
+    font: 14px/30px Helvetica, Verdana, sans-serif;
+    height: 24px;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+/*重写按钮功能的超链接标签*/
+._btn_a {
+    display: block;
+    height: 30px;
+    width: 100px;
+    background: #00B4E1;
+    color: white;
+    font: 14px/30px Helvetica, Verdana, sans-serif;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 500ms;
+}
+
+    ._btn_a:hover {
+        background-color: #00809F;
+    }
+/*链接功能的超链接标签*/
+._link_a {
+    color: #00B4E1;
+    font: 14px/30px Helvetica, Verdana, sans-serif;
+    text-align: center;
+}
+
+    ._link_a:hover {
+        text-decoration: underline;
+    }
