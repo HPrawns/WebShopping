@@ -20,5 +20,14 @@ namespace WebShopping.StaffPage {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::WebShopping.Controls.Admin_left Admin_left;
+        
+        /// <summary>
+        /// Goods_menu 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::WebShopping.Controls.Goods_menu Goods_menu;
     }
 }

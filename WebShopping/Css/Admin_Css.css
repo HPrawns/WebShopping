@@ -34,3 +34,6 @@
     float: left;
     position: absolute;
 }
+body {
+    background:url(../Img/bg.jpg);
+}

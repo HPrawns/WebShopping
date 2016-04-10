@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseClass\Staffinfo.cs" />
     <Compile Include="CustomClass\GoodsEntity.cs" />
+    <Compile Include="CustomClass\StaffinfoEntity.cs" />
     <Compile Include="DataContextAttribute.cs" />
     <Compile Include="BaseClass\Goods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

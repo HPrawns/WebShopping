@@ -62,7 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Controls\Admin_left.ascx" />
+    <Content Include="Controls\Goods_menu.ascx" />
     <Content Include="Css\Admin_Css.css" />
+    <Content Include="Img\bg.jpg" />
     <Content Include="Js\Admin_Js.js" />
     <Content Include="StaffPage\GoodsView.aspx" />
     <Content Include="StaffPage\Login.aspx" />
@@ -82,12 +84,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Tools.cs" />
     <Compile Include="Controls\Admin_left.ascx.cs">
       <DependentUpon>Admin_left.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controls\Admin_left.ascx.designer.cs">
       <DependentUpon>Admin_left.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Goods_menu.ascx.cs">
+      <DependentUpon>Goods_menu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Goods_menu.ascx.designer.cs">
+      <DependentUpon>Goods_menu.ascx</DependentUpon>
     </Compile>
     <Compile Include="StaffPage\GoodsView.aspx.cs">
       <DependentUpon>GoodsView.aspx</DependentUpon>

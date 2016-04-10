@@ -6,3 +6,10 @@ E:\GIT\WebShopping\DB\bin\Debug\Entity.dll
 E:\GIT\WebShopping\DB\bin\Debug\Entity.pdb
 E:\GIT\WebShopping\DB\obj\Debug\DB.dll
 E:\GIT\WebShopping\DB\obj\Debug\DB.pdb
+D:\开发\GIT\WebShopping\DB\bin\Debug\DB.dll
+D:\开发\GIT\WebShopping\DB\bin\Debug\DB.pdb
+D:\开发\GIT\WebShopping\DB\bin\Debug\Entity.dll
+D:\开发\GIT\WebShopping\DB\bin\Debug\MySql.Data.dll
+D:\开发\GIT\WebShopping\DB\bin\Debug\Entity.pdb
+D:\开发\GIT\WebShopping\DB\obj\Debug\DB.dll
+D:\开发\GIT\WebShopping\DB\obj\Debug\DB.pdb

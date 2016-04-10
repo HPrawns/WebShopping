@@ -22,3 +22,13 @@ E:\GIT\WebShopping\WebShopping\bin\DB.pdb
 E:\GIT\WebShopping\WebShopping\bin\Newtonsoft.Json.dll
 E:\GIT\WebShopping\WebShopping\bin\Newtonsoft.Json.pdb
 E:\GIT\WebShopping\WebShopping\bin\Newtonsoft.Json.xml
+D:\开发\GIT\WebShopping\WebShopping\bin\BLL.dll
+D:\开发\GIT\WebShopping\WebShopping\bin\Entity.dll
+D:\开发\GIT\WebShopping\WebShopping\bin\Newtonsoft.Json.dll
+D:\开发\GIT\WebShopping\WebShopping\bin\DB.dll
+D:\开发\GIT\WebShopping\WebShopping\bin\MySql.Data.dll
+D:\开发\GIT\WebShopping\WebShopping\bin\BLL.pdb
+D:\开发\GIT\WebShopping\WebShopping\bin\Entity.pdb
+D:\开发\GIT\WebShopping\WebShopping\bin\Newtonsoft.Json.pdb
+D:\开发\GIT\WebShopping\WebShopping\bin\Newtonsoft.Json.xml
+D:\开发\GIT\WebShopping\WebShopping\bin\DB.pdb

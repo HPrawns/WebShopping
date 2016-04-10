@@ -1,8 +1,9 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Admin_left.ascx.cs" Inherits="WebShopping.Controls.Admin_left" %>
 <script src="../Js/Jquery_2.2.2.js"></script>
 <link href="../Css/Initialization.css" rel="stylesheet" />
-<link href="../Css/Admin_Css.css" rel="stylesheet" />
-<script src="../Js/Admin_Js.js"></script>
+<link href="../Css/Admin_Css.css?ver=<%=ver%>" rel="stylesheet" />
+<script src="../Js/Admin_Js.js?ver=<%=ver%>"></script>
+<link href="../Css/OverrideStyle.css" rel="stylesheet" />
 <div class="slideMenu">
     <ul class="slideMenu_ul">
         <li><a href="javascript:;">商品管理</a></li>
