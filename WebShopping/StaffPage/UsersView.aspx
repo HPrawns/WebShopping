@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GoodsView.aspx.cs" Inherits="WebShopping.StaffPage.GoodsView" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UsersView.aspx.cs" Inherits="WebShopping.StaffPage.UsersView" %>
 
-<%@ Register Src="~/Controls/Menu_left_goods.ascx" TagPrefix="uc1" TagName="Menu_left_goods" %>
 <%@ Register Src="~/Controls/Menu_admin.ascx" TagPrefix="uc1" TagName="Menu_admin" %>
+<%@ Register Src="~/Controls/Menu_left_user.ascx" TagPrefix="uc1" TagName="Menu_left_user" %>
 
 
 
@@ -10,16 +10,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>商品管理</title>
+    <title>用户管理</title>
 </head>
 <body>
-    <form runat="server">
+    <form id="Form1" runat="server">
         <div class="_admin_head_menu">
             <uc1:Menu_admin runat="server" ID="Menu_admin" />
         </div>
         <div class="_admin_body">
             <div class="_admin_body_left">
-                <uc1:Menu_left_goods runat="server" ID="Menu_left_goods" />
+                <uc1:Menu_left_user runat="server" ID="Menu_left_user" />
             </div>
             <div class="_admin_body_right">
                 <table class="_data_table" id="_datatable_goods">

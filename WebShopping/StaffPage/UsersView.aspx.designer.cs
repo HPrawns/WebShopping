@@ -10,7 +10,16 @@
 namespace WebShopping.StaffPage {
     
     
-    public partial class GoodsView {
+    public partial class UsersView {
+        
+        /// <summary>
+        /// Form1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
         
         /// <summary>
         /// Menu_admin 控件。
@@ -22,12 +31,12 @@ namespace WebShopping.StaffPage {
         protected global::WebShopping.Controls.Admin_left Menu_admin;
         
         /// <summary>
-        /// Menu_left_goods 控件。
+        /// Menu_left_user 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::WebShopping.Controls.Goods_menu Menu_left_goods;
+        protected global::WebShopping.Controls.Menu_left_user Menu_left_user;
     }
 }

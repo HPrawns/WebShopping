@@ -40,7 +40,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseClass\city.cs" />
+    <Compile Include="BaseClass\GoodsType.cs" />
+    <Compile Include="BaseClass\SellGoods.cs" />
+    <Compile Include="BaseClass\StaffCommit.cs" />
     <Compile Include="BaseClass\Staffinfo.cs" />
+    <Compile Include="BaseClass\StaffType.cs" />
+    <Compile Include="BaseClass\UserInfo.cs" />
     <Compile Include="CustomClass\GoodsEntity.cs" />
     <Compile Include="CustomClass\StaffinfoEntity.cs" />
     <Compile Include="DataContextAttribute.cs" />

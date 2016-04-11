@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="DBhelp.cs" />
     <Compile Include="DB_Goods.cs" />
+    <Compile Include="DB_Option.cs" />
     <Compile Include="JsonHelp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility.cs" />

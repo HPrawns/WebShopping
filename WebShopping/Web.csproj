@@ -61,8 +61,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Controls\Admin_left.ascx" />
-    <Content Include="Controls\Goods_menu.ascx" />
+    <Content Include="Controls\Menu_admin.ascx" />
+    <Content Include="Controls\Menu_left_goods.ascx" />
+    <Content Include="Controls\Menu_left_staff.ascx" />
+    <Content Include="Controls\Menu_left_user.ascx" />
     <Content Include="Css\Admin_Css.css" />
     <Content Include="Img\bg.jpg" />
     <Content Include="Js\Admin_Js.js" />
@@ -80,24 +82,40 @@
     <Content Include="index.aspx" />
     <Content Include="Js\Jquery_2.2.2.js" />
     <Content Include="NewCssPage.html" />
+    <Content Include="StaffPage\StaffView.aspx" />
+    <Content Include="StaffPage\UsersView.aspx" />
     <Content Include="UserPage\Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Tools.cs" />
-    <Compile Include="Controls\Admin_left.ascx.cs">
-      <DependentUpon>Admin_left.ascx</DependentUpon>
+    <Compile Include="Controls\Menu_admin.ascx.cs">
+      <DependentUpon>Menu_admin.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Controls\Admin_left.ascx.designer.cs">
-      <DependentUpon>Admin_left.ascx</DependentUpon>
+    <Compile Include="Controls\Menu_admin.ascx.designer.cs">
+      <DependentUpon>Menu_admin.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Goods_menu.ascx.cs">
-      <DependentUpon>Goods_menu.ascx</DependentUpon>
+    <Compile Include="Controls\Menu_left_goods.ascx.cs">
+      <DependentUpon>Menu_left_goods.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Controls\Goods_menu.ascx.designer.cs">
-      <DependentUpon>Goods_menu.ascx</DependentUpon>
+    <Compile Include="Controls\Menu_left_goods.ascx.designer.cs">
+      <DependentUpon>Menu_left_goods.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Menu_left_staff.ascx.cs">
+      <DependentUpon>Menu_left_staff.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Menu_left_staff.ascx.designer.cs">
+      <DependentUpon>Menu_left_staff.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Menu_left_user.ascx.cs">
+      <DependentUpon>Menu_left_user.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Menu_left_user.ascx.designer.cs">
+      <DependentUpon>Menu_left_user.ascx</DependentUpon>
     </Compile>
     <Compile Include="StaffPage\GoodsView.aspx.cs">
       <DependentUpon>GoodsView.aspx</DependentUpon>
@@ -125,6 +143,20 @@
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StaffPage\StaffView.aspx.cs">
+      <DependentUpon>StaffView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffPage\StaffView.aspx.designer.cs">
+      <DependentUpon>StaffView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffPage\UsersView.aspx.cs">
+      <DependentUpon>UsersView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffPage\UsersView.aspx.designer.cs">
+      <DependentUpon>UsersView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UserPage\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

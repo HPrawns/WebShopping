@@ -37,3 +37,67 @@
 body {
     background:url(../Img/bg.jpg);
 }
+/*左边菜单控件*/
+      ._admin_head_menu {
+            margin: 0 auto;
+            height: 70px;
+            width: 1210px;
+        }
+
+        ._admin_body {
+            margin: 0 auto;
+            width: 1210px;
+            height: 685px;
+        }
+
+        ._admin_body_left, ._admin_body_right {
+            border: 1px solid #C0C0C0;
+            border-radius: 2px;
+            float: left;
+            height: 680px;
+        }
+
+        ._admin_body_left {
+            width: 195px;
+            margin: 15px 0 0 0px;
+        }
+
+        ._admin_body_right {
+            width: 1010px;
+            margin: 15px 0 0 0;
+            overflow: auto;
+        }
+
+        ._admin_left_menu {
+            width: 180px;
+            height: auto;
+            padding-top: 10px;
+        }
+
+            ._admin_left_menu li {
+                width: 180px;
+                border: 1px solid #C0C0C0;
+                height: 45px;
+                text-align: center;
+                line-height: 45px;
+                margin-left: 5px;
+                transition: margin-left 500ms;
+                background-color: #007ACC;
+                border-radius: 2px;
+            }
+
+                ._admin_left_menu li a {
+                    font-size: 1.1em;
+                    color: white;
+                }
+
+                ._admin_left_menu li:hover {
+                    background-color: #0062A5;
+                    margin-left: 10px;
+                }
+
+        ._admin_left_menu_li_hover {
+            width: 186px;
+            height: 47px;
+            background-color: #FFEDC3;
+        }
