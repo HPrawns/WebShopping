@@ -17,3 +17,6 @@ D:\开发\GIT\WebShopping\BLL\bin\Debug\Entity.pdb
 D:\开发\GIT\WebShopping\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 D:\开发\GIT\WebShopping\BLL\obj\Debug\BLL.dll
 D:\开发\GIT\WebShopping\BLL\obj\Debug\BLL.pdb
+E:\GIT\WebShopping\BLL\bin\Debug\Newtonsoft.Json.dll
+E:\GIT\WebShopping\BLL\bin\Debug\Newtonsoft.Json.pdb
+E:\GIT\WebShopping\BLL\bin\Debug\Newtonsoft.Json.xml

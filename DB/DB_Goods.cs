@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Entity;
 using Entity.CustomClass;
 using System.Data;
+using Entity.BaseClass;
 
 namespace DB
 {
@@ -48,5 +49,30 @@ namespace DB
             var list = query.Skip(entity.PageIndex).Take(entity.PageSize).ToList();
             return list;
         }
+        #region 测试分页
+
+        public string test(GoodsEntity entity)
+        {
+            var query = Getcity();
+            var list = query.Skip(entity.PageIndex).Take(entity.PageSize).ToList();
+            return new JsonHelp().JsonMsg(true, "获取成功", query.Count(), list);
+        }
+        private IEnumerable<city> Getcity()
+        {
+            List<city> list = new List<city>();
+            string sql = "select *from city";
+            DataTable dt = DB.GetTable(sql);
+            if (dt.Rows.Count != 0)
+            {
+                foreach (DataRow item in dt.Rows)
+                {
+                    city gs = new city();
+                    Uy.ConvertToEntity(gs, item);
+                    list.Add(gs);
+                }
+            }
+            return list;
+        }
+        #endregion
     }
 }

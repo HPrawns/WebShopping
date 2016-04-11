@@ -13,3 +13,6 @@ D:\开发\GIT\WebShopping\DB\bin\Debug\MySql.Data.dll
 D:\开发\GIT\WebShopping\DB\bin\Debug\Entity.pdb
 D:\开发\GIT\WebShopping\DB\obj\Debug\DB.dll
 D:\开发\GIT\WebShopping\DB\obj\Debug\DB.pdb
+E:\GIT\WebShopping\DB\bin\Debug\Newtonsoft.Json.dll
+E:\GIT\WebShopping\DB\bin\Debug\Newtonsoft.Json.pdb
+E:\GIT\WebShopping\DB\bin\Debug\Newtonsoft.Json.xml

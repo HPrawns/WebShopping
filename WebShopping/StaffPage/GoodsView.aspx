@@ -40,7 +40,7 @@
         ._admin_body_right {
             width: 1010px;
             margin: 15px 0 0 0;
-            overflow-x:auto;
+            overflow: auto;
         }
 
         ._admin_left_menu {

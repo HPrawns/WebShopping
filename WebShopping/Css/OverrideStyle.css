@@ -59,15 +59,15 @@
     }
 /*数据展示类型的table*/
 ._data_table {
-    width:auto;
+    width: 100%;
     font: 14px/30px Helvetica, Verdana, sans-serif;
     border: 0px solid #00809F;
     border-collapse: collapse;
     border: 1px solid #00809F;
-    margin-top:10px;
+    margin-top: 10px;
 }
 
-    ._data_table thead  tr th {
+    ._data_table thead tr th {
         /*border: 1px solid #00809F;*/
         text-align: center;
     }
@@ -80,7 +80,7 @@
         ._data_table tbody tr td {
             border: 1px solid #00809F;
         }
-
+        /*鼠标停留的行背景颜色*/
         ._data_table tbody tr:hover {
-            background-color: #EAEAEA;
+            background-color: #C0C0C0;
         }

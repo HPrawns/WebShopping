@@ -20,11 +20,11 @@
         }
 
             ._btn_a:hover {
-                
                 background-color: #00809F;
             }
+
             ._btn_a:active {
-                top:1px;
+                top: 1px;
             }
         /*链接功能的超链接标签*/
         ._link_a {
@@ -58,12 +58,13 @@
                 ._data_table tbody tr td {
                     border: 1px solid #00809F;
                 }
+
                 ._data_table tbody tr:hover {
-                    background-color: #EAEAEA;
+                    background-color: #C0C0C0;
                 }
-                /*分页的区域样式*/
+        /*分页的区域样式*/
         #pagediv {
-            border: 1px solid red;
+            border: 0px solid red;
             width: 1200px;
             font: 14px/30px Helvetica, Verdana, sans-serif;
             height: 25px;
@@ -116,55 +117,72 @@
     <script type="text/javascript">
         $(function () {
             var goods = new JqTable("_datatable_goods");
-            goods.PageInit();
             goods.LoadData();
+            console.log(goods.PageSize);
+            //goods.PageInit();
+
+
         });
         function JqTable(tableid) {
             this.tableid = tableid;
             this.table = $("#" + tableid);
             this.PageIndex = 1;
-            this.PageSize = 15;
+            this.PageSize = this.table.attr("PageSize");
             this.count = 0;
             this.DataArr = [];
+            this.PageCount = 0;
+            this.option = {
+                action: this.table.attr("action"),
+                RqUrl: this.table.attr("RqUrl")
+            };
         }
-        //分页分装
+        var divCont = $("<div id='pagediv'>");
+        //分页初始化
         JqTable.prototype.PageInit = function () {
-            var pagecount = parseInt(this.count / this.PageSize) + 1;     //总页数
-            var divCont = $("<div id='pagediv'>");
+            var qindex = 0;
+            var _datatable = this;
+            _datatable.PageCount = parseInt(this.count / this.PageSize) + 1;     //总页数
+
+            divCont.empty();
             divCont.insertAfter(this.table);
-            //this.table.append(divCont);
             var html = '<a href="javascript:void(0)" class="_pageindex_a" indextype="First"  >首页</a>' +
                                '<a href="javascript:void(0)" class="_pageindex_a" indextype="Prev">上一页</a>';
-            for (var q = 0; q < pagecount; q++) {
+            for (var q = (_datatable.PageIndex - 1) ; q < _datatable.PageCount; q++) {
                 html += '<a href="javascript:void(0)" class="_pageindex_a " indextype="' + (q + 1) + '" indexnumber="' + (q + 1) + '">' + (q + 1) + '</a>';
-                //'<a href="javascript:void(0)" class="_pageindex_a" indextype="2" indexnumber="2">2</a>' +
-                //'<a href="javascript:void(0)" class="_pageindex_a" indextype="3" indexnumber="3">3</a>' +
-                //'<a href="javascript:void(0)" class="_pageindex_a" indextype="4" indexnumber="4">4</a>' +
-                // ' <span style="float: left">.........</span>';
-            }
-            if (pagecount >= 5) {
-                html += ' <span style="float: left">.........</span>';
-                html += '<a href="javascript:void(0)" class="_pageindex_a" indextype="' + pagecount + '"  indexnumber="' + pagecount + '">' + pagecount + '</a>';
+                if (_datatable.PageCount >= 5 && qindex == 4) {
+                    html += ' <span style="float: left">.........</span>';
+                    html += '<a href="javascript:void(0)" class="_pageindex_a" indextype="' + _datatable.PageCount + '"  indexnumber="' + _datatable.PageCount + '">' + _datatable.PageCount + '</a>';
+                    break;
+                }
+                qindex++;
             }
             html += '<a href="javascript:void(0)" class="_pageindex_a" indextype="Next">下一页</a>' +
-            '<a href="javascript:void(0)" class="_pageindex_a" indextype="Last" >尾页</a>';
+            '<a href="javascript:void(0)" class="_pageindex_a"  indextype="Last"  indexnumber="' + _datatable.PageCount + '">尾页</a>';
             divCont.append(html);
             var pagediv = $("#pagediv");
-            var _datatable = this;
             $("[indextype=First]").click(function () { _datatable.onFirst(this) });
             $("[indextype=Prev]").click(function () { _datatable.onPrev(this) });
             $("[indextype=Next]").click(function () { _datatable.onNext(this) });
+            $("[indextype=Last]").click(function () { _datatable.onLast(this) });
             $("[indexnumber]").click(function () { _datatable.onPageGo(this) });
+            NowIndexClass("pagediv", _datatable.PageIndex);
+        }
+        //组装查询数据
+        JqTable.prototype.FormData = function () {
+            var query = {};
+            query.PageIndex = this.PageIndex;
+            query.PageSize = this.PageSize;
+            return query;
         }
         //加载数据
-        JqTable.prototype.LoadData = function (pageindex) {
+        JqTable.prototype.LoadData = function () {
             var _datatable = this;
             $.ajax({
                 type: "POST",
                 //contentType: "application/json;charset=utf-8",// 这句可不要忘了。
-                url: "Common/GoodsCommon.ashx",
+                url: "Common/" + this.option.RqUrl + ".ashx",
                 dataType: "JSON",
-                data: { action: "query", data: "" },
+                data: { action: this.option.action, data: JSON.stringify(this.FormData()) },
                 async: false,
                 success: function (e) {
                     if (e.success) {
@@ -176,10 +194,9 @@
                 error: function (e) { }
             });
             this.BindData();
-            //console.log(_datatable.DataArr);
-
-            NowIndexClass("pagediv", pageindex);
+            this.PageInit();
         }
+        //绑定数据
         JqTable.prototype.BindData = function () {
             var _datatable = this;
             var ths = $(_datatable.table).find("thead tr th");
@@ -213,16 +230,21 @@
         //下一页
         JqTable.prototype.onNext = function (obj) {
             this.PageIndex += 1;
+            if (this.PageIndex >= this.PageCount) {
+                this.PageIndex = this.PageCount;
+            }
             this.LoadData(this.PageIndex);
         }
         //尾页
         JqTable.prototype.onLast = function (obj) {
-
+            this.PageIndex = this.PageCount;
+            this.LoadData(this.PageIndex);
         }
         //跳转页
         JqTable.prototype.onPageGo = function (obj) {
             var _obj = $(obj);
             this.PageIndex = _obj.attr("indexnumber");
+
             this.LoadData(this.PageIndex);
         }
         //为当前页提供类样式 obj=分页所在div的id
@@ -238,13 +260,17 @@
 
     <a href="javascript:void(0)" class="_link_a">链接标签</a>
     <div style="width: 1210px">
-        <table class="_data_table" id="_datatable_goods">
+        <table class="_data_table" id="_datatable_goods" pagesize="15" action="query" rqurl="GoodsCommon">
             <thead>
                 <tr>
-                    <th name="gid">序号</th>
+                    <!--<th name="gid">序号</th>
                     <th name="goodsname">商品名称</th>
                     <th name="goodscode">商品编码</th>
-                    <th name="goodsprice">商品价格</th>
+                    <th name="goodsprice">商品价格</th>-->
+                    <th name="id">序号</th>
+                    <th name="name">商品名称</th>
+                    <th name="countrycode">商品编码</th>
+                    <th name="district">商品价格</th>
                 </tr>
             </thead>
             <tbody>

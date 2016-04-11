@@ -27,11 +27,12 @@ namespace WebShopping.Common
         {
             context.Response.ContentType = "application/json";
             var action = context.Request.Form["action"];
+            var data = context.Request.Form["data"];
             string backjson = string.Empty;
             switch (action)
             {
                 case "query":
-                    backjson = GetGoodsData("");
+                    backjson = test(data);
                     break;
                 default:
                     break;
@@ -49,6 +50,13 @@ namespace WebShopping.Common
             ge.PageSize = 15;
             var query = gs.GetGoodsData(ge);
             return new JsonHelp().JsonMsg(true, "获取成功", 0, query);
+        }
+        public string test(string jsondata)
+        {
+            GoodsEntity ge = new GoodsEntity();
+            ge = new JsonHelp().ParseEntity<GoodsEntity>(jsondata);
+            ge.PageIndex = (ge.PageIndex - 1) * ge.PageSize;
+            return gs.test(ge);
         }
     }
 }

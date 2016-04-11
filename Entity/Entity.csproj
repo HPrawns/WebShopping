@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseClass\city.cs" />
     <Compile Include="BaseClass\Staffinfo.cs" />
     <Compile Include="CustomClass\GoodsEntity.cs" />
     <Compile Include="CustomClass\StaffinfoEntity.cs" />

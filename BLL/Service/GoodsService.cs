@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Entity;
 using DB;
 using Entity.CustomClass;
+using System.Data;
+using Entity.BaseClass;
 
 namespace BLL.Service
 {
@@ -18,7 +20,14 @@ namespace BLL.Service
         /// <returns></returns>
         public List<Goods> GetGoodsData(GoodsEntity entity)
         {
+         
             return new DB_Goods().GetGoodsData(entity);
+        }
+
+        public string test(GoodsEntity entity)
+        {
+       
+            return new DB_Goods().test(entity);
         }
     }
 }
