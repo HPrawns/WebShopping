@@ -7,3 +7,4 @@ E:\GIT\WebShopping\Entity\bin\Debug\Entity.pdb
 E:\GIT\WebShopping\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
 E:\GIT\WebShopping\Entity\obj\Debug\Entity.dll
 E:\GIT\WebShopping\Entity\obj\Debug\Entity.pdb
+D:\开发\GIT\WebShopping\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache

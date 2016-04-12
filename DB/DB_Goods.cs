@@ -27,7 +27,7 @@ namespace DB
                 foreach (DataRow item in dt.Rows)
                 {
                     Goods gs = new Goods();
-                    Uy.ConvertToEntity(gs, item);
+                    Uy.ConvertToEntityList(gs, item);
                     list.Add(gs);
                 }
             }
@@ -67,7 +67,7 @@ namespace DB
                 foreach (DataRow item in dt.Rows)
                 {
                     city gs = new city();
-                    Uy.ConvertToEntity(gs, item);
+                    Uy.ConvertToEntityList(gs, item);
                     list.Add(gs);
                 }
             }

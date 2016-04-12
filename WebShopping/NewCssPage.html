@@ -114,16 +114,14 @@
                 box-shadow: 0 0 3px #00B4E1;
             }
 
-            /*提示框系列样式*/
-
-
+        /*提示框系列样式*/
     </style>
     <script type="text/javascript">
         $(function () {
             var goods = new JqTable("_datatable_goods");
-            goods.LoadData();
+            //  goods.LoadData();
             //goods.PageInit();
-
+            TipBox();
 
         });
         function JqTable(tableid) {
@@ -260,7 +258,8 @@
 
 
         function TipBox(obj) {
-            this.divid = "tipbox_div";
+            $("#tipbox_div").css({ width: window.screen.availWidth, height: window.screen.availHeight });
+            //       this.divid = "tipbox_div";
             //if (!obj) {
             //    obj = {};
             //}
@@ -270,6 +269,9 @@
         }
         TipBox.prototype.init = function (obj) {
 
+        }
+        function closes() {
+            $("#tipbox_div").hide();
         }
 
     </script>
@@ -311,7 +313,57 @@
     </div>
 
     <input class="_inputdefault" placeholder="常规文本框" />
+    <style>
+        .tipbox {
+            border: 1px solid red;
+            margin: 15% auto;
+            width: 400px;
+            height: 290px;
+            background-color:white;
+        }
 
-    <div id="tipbox_div"></div>
+        .tipbox_title {
+            width: 400px;
+            height: 45px;
+            border: 1px solid black;
+            line-height: 45px;
+        }
+
+        .tipbox_content {
+            width: 380px;
+            height: 200px;
+            margin: 10px 10px;
+            border: 1px solid blue;
+            font-size: 16px;
+            display: block;
+            text-align: center;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-indent: 2em;
+        }
+
+        .tipbox_title div:nth-child(2) {
+            display: block;
+            height: 30px;
+            width: 30px;
+            border: 1px solid #C0C0C0;
+            margin:7px 15px 0 0;
+            border-radius:30px;
+            line-height:30px;
+            text-align:center;
+            float:right;
+        }
+    </style>
+
+    <div id="tipbox_div" style="position: absolute; background-color: #D0D1D7; left: 0; top: 0; opacity: 0.8">
+        <div class="tipbox">
+            <div class="tipbox_title"><span style="margin-left: 15px;">温馨提醒</span><div onclick="closes()">X</div>
+            </div>
+
+            <div class="tipbox_content">这里是内这里是内容这里是内容这里是内容这里是内容</div>
+            <div class="tipbox_foot" style="width: 400px; height: 45px;"><a style="margin: 0px auto;">确认</a> <a style="margin: 0px auto;">取消</a></div>
+        </div>
+
+    </div>
 </body>
 </html>
