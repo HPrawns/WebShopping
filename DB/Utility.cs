@@ -16,7 +16,7 @@ namespace DB
         /// </summary>
         /// <param name="obj">实体</param>
         /// <param name="row">数据表一行数据</param>
-        public void ConvertToEntity(object obj, DataRow row)
+        public void ConvertToEntityList(object obj, DataRow row)
         {
             ///得到obj的类型
             Type type = obj.GetType();
@@ -25,48 +25,80 @@ namespace DB
             ///循环公共属性数组
             foreach (PropertyInfo info in infos)
             {
-                ///返回自定义属性数组
-                object[] attributes = info.GetCustomAttributes(typeof(DataContextAttribute), false);
-                ///将自定义属性数组循环
-                foreach (DataContextAttribute attribute in attributes)
+                try
                 {
-                    ///如果datarow里也包括此列
-                    if (row.Table.Columns.Contains(attribute.property))
+                    ///返回自定义属性数组
+                    object[] attributes = info.GetCustomAttributes(typeof(DataContextAttribute), false);
+                    ///将自定义属性数组循环
+                    foreach (DataContextAttribute attribute in attributes)
                     {
-                        ///将datarow指定列的值赋给value
-                        object value = row[attribute.property];
-                        ///如果value为null则返回
-                        if (value == DBNull.Value) continue;
-                        ///将值做转换
-                        if (info.PropertyType.Equals(typeof(string)))
+                        ///如果datarow里也包括此列
+                        if (row.Table.Columns.Contains(attribute.property))
                         {
-                            value = row[attribute.property].ToString();
+                            ///将datarow指定列的值赋给value
+                            object value = row[attribute.property];
+                            ///如果value为null则返回
+                            if (value == DBNull.Value) continue;
+                            ///将值做转换
+                            if (info.PropertyType.Equals(typeof(string)))
+                            {
+                                value = row[attribute.property].ToString();
+                            }
+                            else if (info.PropertyType.Equals(typeof(int)))
+                            {
+                                value = Convert.ToInt32(row[attribute.property]);
+                            }
+                            else if (info.PropertyType.Equals(typeof(decimal)))
+                            {
+                                value = Convert.ToDecimal(row[attribute.property]);
+                            }
+                            else if (info.PropertyType.Equals(typeof(DateTime)))
+                            {
+                                value = Convert.ToDateTime(row[attribute.property]);
+                            }
+                            else if (info.PropertyType.Equals(typeof(double)))
+                            {
+                                value = Convert.ToDouble(row[attribute.property]);
+                            }
+                            else if (info.PropertyType.Equals(typeof(bool)))
+                            {
+                                value = Convert.ToBoolean(row[attribute.property]);
+                            }
+                            ///利用反射自动将value赋值给obj的相应公共属性
+                            info.SetValue(obj, value, null);
                         }
-                        else if (info.PropertyType.Equals(typeof(int)))
-                        {
-                            value = Convert.ToInt32(row[attribute.property]);
-                        }
-                        else if (info.PropertyType.Equals(typeof(decimal)))
-                        {
-                            value = Convert.ToDecimal(row[attribute.property]);
-                        }
-                        else if (info.PropertyType.Equals(typeof(DateTime)))
-                        {
-                            value = Convert.ToDateTime(row[attribute.property]);
-                        }
-                        else if (info.PropertyType.Equals(typeof(double)))
-                        {
-                            value = Convert.ToDouble(row[attribute.property]);
-                        }
-                        else if (info.PropertyType.Equals(typeof(bool)))
-                        {
-                            value = Convert.ToBoolean(row[attribute.property]);
-                        }
-                        ///利用反射自动将value赋值给obj的相应公共属性
-                        info.SetValue(obj, value, null);
                     }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("数据绑定异常"+ex);
                 }
             }
         }
+
+
+        
+        ///// <summary>
+        ///// 单个属性绑定
+        ///// </summary>
+        ///// <param name="obj"></param>
+        ///// <param name="objentity"></param>
+        //public void ConertToEntity(object obj, object objentity)
+        //{
+        //    ///得到obj的类型
+        //    Type type = obj.GetType();
+        //    ///返回这个类型的所有公共属性
+        //    PropertyInfo[] infos = type.GetProperties();
+        //    foreach (PropertyInfo info in infos)
+        //    {
+        //        ///返回自定义属性数组
+        //        object[] attributes = info.GetCustomAttributes(typeof(DataContextAttribute), false);
+        //        ///将自定义属性数组循环
+        //        foreach (DataContextAttribute attribute in attributes)
+        //        {
+
+        //        }
+        //    }
+        //}
     }
 }

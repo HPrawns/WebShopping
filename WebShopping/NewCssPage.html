@@ -113,12 +113,15 @@
                 -moz-box-shadow: 0 0 3px #00B4E1;
                 box-shadow: 0 0 3px #00B4E1;
             }
+
+            /*提示框系列样式*/
+
+
     </style>
     <script type="text/javascript">
         $(function () {
             var goods = new JqTable("_datatable_goods");
             goods.LoadData();
-            console.log(goods.PageSize);
             //goods.PageInit();
 
 
@@ -253,6 +256,22 @@
             $("a[indexnumber]", _pagebox).removeClass("_pageindex_a_click");
             $("a[indexnumber=" + pageindex + "]", _pagebox).addClass("_pageindex_a_click");
         }
+
+
+
+        function TipBox(obj) {
+            this.divid = "tipbox_div";
+            //if (!obj) {
+            //    obj = {};
+            //}
+            //if (!obj.title) {
+            //    obj.title="你确定这么做吗?"
+            //}
+        }
+        TipBox.prototype.init = function (obj) {
+
+        }
+
     </script>
 </head>
 <body>
@@ -292,5 +311,7 @@
     </div>
 
     <input class="_inputdefault" placeholder="常规文本框" />
+
+    <div id="tipbox_div"></div>
 </body>
 </html>

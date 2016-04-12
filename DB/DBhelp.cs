@@ -39,6 +39,38 @@ namespace DB
                 }
             }
         }
+        /// <summary>
+        /// 添,删 改, 返回受影响的行
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public int Update(string sql)
+        {
+            int i = 0;
+            using (MySqlConnection con = new MySqlConnection(constr))
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                i = cmd.ExecuteNonQuery();
+            }
+            return i;
+        }
 
+        /// <summary>
+        /// 返回单条数据
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public Object Select(string sql)
+        {
+            Object i = "";
+            using (MySqlConnection con = new MySqlConnection(constr))
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                i = cmd.ExecuteScalar();
+            }
+            return i;
+        }
     }
 }

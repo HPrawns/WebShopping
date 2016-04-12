@@ -47,7 +47,9 @@
     <Compile Include="BaseClass\StaffType.cs" />
     <Compile Include="BaseClass\UserInfo.cs" />
     <Compile Include="CustomClass\GoodsEntity.cs" />
+    <Compile Include="CustomClass\GoodsTypeEntity.cs" />
     <Compile Include="CustomClass\StaffinfoEntity.cs" />
+    <Compile Include="CustomClass\StaffTypeEntity.cs" />
     <Compile Include="DataContextAttribute.cs" />
     <Compile Include="BaseClass\Goods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
