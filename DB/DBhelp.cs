@@ -14,8 +14,8 @@ namespace DB
     public class DBhelp
     {
         //连接地址
-        private readonly string constr = "server=localhost;User Id=root;password=2432391;Database=world";
-
+        //private readonly string constr = "server=localhost;User Id=root;password=2432391;Database=world";
+        private readonly string constr = "server=localhost;User Id=root;password=2432391;Database=webshopping";
         /// <summary>
         /// 读取数据库 返沪datable类型
         /// </summary>

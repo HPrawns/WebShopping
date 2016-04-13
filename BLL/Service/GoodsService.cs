@@ -20,14 +20,24 @@ namespace BLL.Service
         /// <returns></returns>
         public List<Goods> GetGoodsData(GoodsEntity entity)
         {
-         
+
             return new DB_Goods().GetGoodsData(entity);
         }
 
         public string test(GoodsEntity entity)
         {
-       
+
             return new DB_Goods().test(entity);
+        }
+
+        /// <summary>
+        /// 更新商品类型
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public string UpdateGoodsType(GoodsTypeEntity entity)
+        {
+            return new DB_Option().UpdateGoodsType(entity);
         }
     }
 }

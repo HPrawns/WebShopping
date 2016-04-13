@@ -53,10 +53,21 @@ namespace WebShopping.Common
         }
         public string test(string jsondata)
         {
-            GoodsEntity ge = new GoodsEntity();
-            ge = new JsonHelp().ParseEntity<GoodsEntity>(jsondata);
-            ge.PageIndex = (ge.PageIndex - 1) * ge.PageSize;
-            return gs.test(ge);
+            GoodsTypeEntity ge = new GoodsTypeEntity();
+            ge.Goodsinfo = "cvbvc";
+            ge.Goodsmark = "asdasd";
+            ge.isEnabled = true;
+            ge.Parentcode = "";
+            ge.Selfcode = "123";
+            ge.Typename = "舒服多";
+
+
+            return gs.UpdateGoodsType(ge);
+
+            //GoodsEntity ge = new GoodsEntity();
+            //ge = new JsonHelp().ParseEntity<GoodsEntity>(jsondata);
+            //ge.PageIndex = (ge.PageIndex - 1) * ge.PageSize;
+            //return gs.test(ge);
         }
     }
 }

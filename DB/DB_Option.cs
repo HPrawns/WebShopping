@@ -56,7 +56,11 @@ namespace DB
             var list = query.Skip(entity.PageIndex).Take(entity.PageSize).ToList();
             return list;
         }
-
+        /// <summary>
+        /// 更新商品类型
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
         public string UpdateGoodsType(GoodsTypeEntity entity)
         {
             try
@@ -71,16 +75,18 @@ namespace DB
                 var data = GetGoodstypeData(sql).FirstOrDefault();
                 if (data != null)
                 {
-                    string update = "UPDATE GoodsType  SET parentcode='" + entity.Parentcode + "', typename='" + entity.Typename + "'  ," +
-                        " goodsinfo='" + entity.Goodsinfo + "' , goodsmark='" + entity.Goodsmark + "' , isenabled='" + entity.isEnabled + "' ," +
-                        " WHERE selfcode='" + entity.Selfcode + "';";
+                    string update = "UPDATE GoodsType  SET parentcode='{0}' ,typename='{1}'";
+                    //string update = "UPDATE GoodsType  SET parentcode='" + entity.Parentcode + "', typename='" + entity.Typename + "'  ," +
+                    //    " goodsinfo='" + entity.Goodsinfo + "' , goodsmark='" + entity.Goodsmark + "' , isenabled='" + entity.isEnabled + "' ," +
+                    //    " WHERE selfcode='" + entity.Selfcode + "';";
                     i = DB.Update(update);
                 }
                 else
                 {
-                    string insert = "insert into GoodsType values('parentcode','" + entity.Parentcode + "'),('selfcode','" + entity.Selfcode + "')," +
-                        "('typename','" + entity.Typename + "'),('goodsinfo','" + entity.Goodsinfo + "'),('goodsmark','" + entity.Goodsmark + "')," +
-                        "('isenabled','" + entity.isEnabled + "')";
+                    string insert = "  insert into GoodsType  (parentcode,selfcode,typename,goodsinfo,goodsmark,isenabled)" +
+                      "values('{0}','{1}','{2}','{3}','{4}',{5});";
+                    insert = string.Format(insert, entity.Parentcode, entity.Selfcode, entity.Typename, entity.Goodsinfo, entity.Goodsmark, entity.isEnabled == true ? 1 : 0);
+
                     i = DB.Update(insert);
                 }
                 if (i > 0)
