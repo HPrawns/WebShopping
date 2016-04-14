@@ -51,6 +51,10 @@
     <Compile Include="DBhelp.cs" />
     <Compile Include="DB_Goods.cs" />
     <Compile Include="DB_Option.cs" />
+    <Compile Include="DB_SellGoods.cs" />
+    <Compile Include="DB_StaffCommit.cs" />
+    <Compile Include="DB_Staffinfo.cs" />
+    <Compile Include="DB_UserInfo.cs" />
     <Compile Include="JsonHelp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility.cs" />

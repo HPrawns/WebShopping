@@ -17,37 +17,29 @@ namespace DB
     {
         Utility Uy = new Utility();
         DBhelp DB = new DBhelp();
-        private IEnumerable<Goods> GetData()
-        {
-            List<Goods> list = new List<Goods>();
-            string sql = "select *from Goods";
-            DataTable dt = DB.GetTable(sql);
-            if (dt.Rows.Count != 0)
-            {
-                foreach (DataRow item in dt.Rows)
-                {
-                    Goods gs = new Goods();
-                    Uy.ConvertToEntityList(gs, item);
-                    list.Add(gs);
-                }
-            }
-            return list;
-        }
 
         /// <summary>
         /// 获取商品数据
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public List<Goods> GetGoodsData(GoodsEntity entity)
+        public string GetGoodsData(GoodsEntity entity)
         {
-            var query = GetData();
-            if (!string.IsNullOrEmpty(entity.GoodsName))
+            try
             {
-                query = query.Where(a => a.GoodsName.Contains(entity.GoodsName));
+                string sql = "select *from goods";
+                var query = Uy.GetData<Goods>(sql) as IEnumerable<Goods>;
+                if (!string.IsNullOrEmpty(entity.GoodsName))
+                {
+                    query = query.Where(a => a.GoodsName.Contains(entity.GoodsName));
+                }
+                var list = query.Skip(entity.PageIndex).Take(entity.PageSize).ToList();
+                return new JsonHelp().JsonMsg(true, "获取成功!", list.Count, list);
             }
-            var list = query.Skip(entity.PageIndex).Take(entity.PageSize).ToList();
-            return list;
+            catch (Exception ex)
+            {
+                return new JsonHelp().JsonMsg(false, "获取失败!" + ex.Message, 0);
+            }
         }
         #region 测试分页
 

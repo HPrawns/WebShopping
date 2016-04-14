@@ -18,7 +18,7 @@ namespace BLL.Service
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public List<Goods> GetGoodsData(GoodsEntity entity)
+        public string GetGoodsData(GoodsEntity entity)
         {
 
             return new DB_Goods().GetGoodsData(entity);

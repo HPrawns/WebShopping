@@ -16,45 +16,32 @@ namespace DB
 
         Utility Uy = new Utility();
         DBhelp DB = new DBhelp();
-        #region 商品种类
-        /// <summary>
-        /// 组装商品种类基本数据到实体集合
-        /// </summary>
-        /// <returns></returns>
-        private IEnumerable<GoodsType> GetGoodstypeData(string sql)
-        {
-            List<GoodsType> list = new List<GoodsType>();
-            DataTable dt = DB.GetTable(sql);
-            if (dt.Rows.Count != 0)
-            {
-                foreach (DataRow item in dt.Rows)
-                {
-                    GoodsType gs = new GoodsType();
-                    Uy.ConvertToEntityList(gs, item);
-                    list.Add(gs);
-                }
-            }
-            return list;
-        }
         /// <summary>
         /// 读取商品总类数据,参数的实体可配置分页
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public List<GoodsType> GetGoodsType(GoodsTypeEntity entity)
+        public string GetGoodsType(GoodsTypeEntity entity)
         {
-            string sql = "select *from GoodsType";
-            var query = GetGoodstypeData(sql);
-            if (!string.IsNullOrEmpty(entity.Selfcode))
+            try
             {
-                query = query.Where(a => a.Selfcode == entity.Selfcode);
+                string sql = "select *from GoodsType";
+                var query = Uy.GetData<GoodsType>(sql) as IEnumerable<GoodsType>;
+                if (!string.IsNullOrEmpty(entity.Selfcode))
+                {
+                    query = query.Where(a => a.Selfcode == entity.Selfcode);
+                }
+                if (entity.isEnabled != null)
+                {
+                    query = query.Where(a => a.isEnabled == entity.isEnabled);
+                }
+                var list = query.Skip(entity.PageIndex).Take(entity.PageSize).ToList();
+                return new JsonHelp().JsonMsg(true, "获取成功!", list.Count, list);
             }
-            if (entity.isEnabled != null)
+            catch (Exception ex)
             {
-                query = query.Where(a => a.isEnabled == entity.isEnabled);
+                return new JsonHelp().JsonMsg(false, "获取失败!" + ex.Message, 0);
             }
-            var list = query.Skip(entity.PageIndex).Take(entity.PageSize).ToList();
-            return list;
         }
         /// <summary>
         /// 更新商品类型
@@ -65,20 +52,17 @@ namespace DB
         {
             try
             {
-
                 string sql = "select *from GoodsType where 1=1";
                 int i = 0;
                 if (!string.IsNullOrEmpty(entity.Selfcode))
                 {
                     sql += " and Selfcode='" + entity.Selfcode + "'";
                 }
-                var data = GetGoodstypeData(sql).FirstOrDefault();
+                var data = Uy.GetData<GoodsType>(sql).FirstOrDefault();
                 if (data != null)
                 {
-                    string update = "UPDATE GoodsType  SET parentcode='{0}' ,typename='{1}'";
-                    //string update = "UPDATE GoodsType  SET parentcode='" + entity.Parentcode + "', typename='" + entity.Typename + "'  ," +
-                    //    " goodsinfo='" + entity.Goodsinfo + "' , goodsmark='" + entity.Goodsmark + "' , isenabled='" + entity.isEnabled + "' ," +
-                    //    " WHERE selfcode='" + entity.Selfcode + "';";
+                    string update = "UPDATE GoodsType  SET parentcode='{0}' ,typename='{1}',goodsinfo='{2}',goodsmark='{3}',isenabled={4} WHERE selfcode='{5}'";
+                    update = string.Format(update, entity.Parentcode, entity.Typename, entity.Goodsinfo, entity.Goodsmark, entity.isEnabled == true ? 1 : 0, entity.Selfcode);
                     i = DB.Update(update);
                 }
                 else
@@ -102,51 +86,31 @@ namespace DB
             {
                 return new JsonHelp().JsonMsg(false, "保存失败!" + ex.Message, 0);
             }
-
-
         }
-
-        #endregion
         #region 员工种类
-        /// <summary>
-        /// 组装员工种类基本数据到实体集合
-        /// </summary>
-        /// <returns></returns>
-        private IEnumerable<StaffType> GetStaffTypeData(string sql)
-        {
-            List<StaffType> list = new List<StaffType>();
-
-            DataTable dt = DB.GetTable(sql);
-            if (dt.Rows.Count != 0)
-            {
-                foreach (DataRow item in dt.Rows)
-                {
-                    StaffType gs = new StaffType();
-                    Uy.ConvertToEntityList(gs, item);
-                    list.Add(gs);
-                }
-            }
-            return list;
-        }
         /// <summary>
         /// 读取商品总类数据,参数的实体可配置分页
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public List<StaffType> GetGoodsType(StaffTypeEntity entity)
+        public string GetGoodsType(StaffTypeEntity entity)
         {
-            string sql = "select *from StaffType";
-            var query = GetStaffTypeData(sql);
-            if (!string.IsNullOrEmpty(entity.Typecode))
+            try
             {
-                query = query.Where(a => a.Typecode == entity.Typecode);
-            }
-            if (entity.isEnabled != null)
-            {
+                string sql = "select *from StaffType";
+                var query = Uy.GetData<StaffType>(sql) as IEnumerable<StaffType>;
+                if (!string.IsNullOrEmpty(entity.Typecode))
+                {
+                    query = query.Where(a => a.Typecode == entity.Typecode);
+                }
                 query = query.Where(a => a.isEnabled == entity.isEnabled);
+                var list = query.Skip(entity.PageIndex).Take(entity.PageSize).ToList();
+                return new JsonHelp().JsonMsg(true, "获取成功!", list.Count, list);
             }
-            var list = query.Skip(entity.PageIndex).Take(entity.PageSize).ToList();
-            return list;
+            catch (Exception ex)
+            {
+                return new JsonHelp().JsonMsg(false, "获取失败!" + ex.Message, 0);
+            }
         }
         #endregion
     }

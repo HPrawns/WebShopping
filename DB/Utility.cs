@@ -11,6 +11,7 @@ namespace DB
 {
     public class Utility
     {
+        DBhelp DB = new DBhelp();
         /// <summary>
         /// 将datarow转换成实体
         /// </summary>
@@ -71,34 +72,39 @@ namespace DB
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("数据绑定异常"+ex);
+                    throw new Exception("数据绑定异常" + ex);
                 }
             }
         }
 
+        /// <summary>
+        /// 获取数据的集合
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public List<T> GetData<T>(string sql) where T : new()
+        {
+            try
+            {
+                var list = new List<T>();
+                DataTable dt = DB.GetTable(sql);
+                if (dt.Rows.Count != 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        T t = new T();
+                        ConvertToEntityList(t, item);
+                        list.Add(t);
+                    }
+                }
+                return list;
+            }
+            catch (Exception)
+            {
 
-        
-        ///// <summary>
-        ///// 单个属性绑定
-        ///// </summary>
-        ///// <param name="obj"></param>
-        ///// <param name="objentity"></param>
-        //public void ConertToEntity(object obj, object objentity)
-        //{
-        //    ///得到obj的类型
-        //    Type type = obj.GetType();
-        //    ///返回这个类型的所有公共属性
-        //    PropertyInfo[] infos = type.GetProperties();
-        //    foreach (PropertyInfo info in infos)
-        //    {
-        //        ///返回自定义属性数组
-        //        object[] attributes = info.GetCustomAttributes(typeof(DataContextAttribute), false);
-        //        ///将自定义属性数组循环
-        //        foreach (DataContextAttribute attribute in attributes)
-        //        {
+                throw new Exception("数据绑定异常");
+            }
+        }
 
-        //        }
-        //    }
-        //}
     }
 }

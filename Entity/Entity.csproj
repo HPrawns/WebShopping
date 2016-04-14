@@ -48,8 +48,11 @@
     <Compile Include="BaseClass\UserInfo.cs" />
     <Compile Include="CustomClass\GoodsEntity.cs" />
     <Compile Include="CustomClass\GoodsTypeEntity.cs" />
+    <Compile Include="CustomClass\SellGoodsEntity.cs" />
+    <Compile Include="CustomClass\StaffCommitEntity.cs" />
     <Compile Include="CustomClass\StaffinfoEntity.cs" />
     <Compile Include="CustomClass\StaffTypeEntity.cs" />
+    <Compile Include="CustomClass\UserInfoEntity.cs" />
     <Compile Include="DataContextAttribute.cs" />
     <Compile Include="BaseClass\Goods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
