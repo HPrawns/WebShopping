@@ -99,10 +99,9 @@ namespace DB
                 }
                 return list;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw new Exception("数据绑定异常");
+                throw new Exception("数据绑定异常:"+ex.Message);
             }
         }
 

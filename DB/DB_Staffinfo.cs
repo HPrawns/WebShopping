@@ -24,7 +24,7 @@ namespace DB
         {
             try
             {
-                string sql = "select *from GoodsType";
+                string sql = "select *from Staffinfo";
                 var query = Uy.GetData<Staffinfo>(sql) as IEnumerable<Staffinfo>;
                 if (!string.IsNullOrEmpty(entity.StaffName))
                 {
@@ -40,6 +40,29 @@ namespace DB
             catch (Exception ex)
             {
                 return new JsonHelp().JsonMsg(false, "获取失败!" + ex.Message, 0);
+            }
+        }
+
+
+        /// <summary>
+        /// 组装执行语句
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        private string SqlString(StaffinfoEntity entity)
+        {
+            if (entity.Sid == null)
+            {
+                string insert = "  insert into Staffinfo  (StaffName,LoginName,LoginPwd,StaffType,Phone,Email,Smark,isEnabled)" +
+                                      "values('{0}','{1}','{2}','{3}','{4}','{5}','{6}',{7});";
+                insert = string.Format(insert, entity.StaffName, entity.LoginName, entity.LoginPwd, entity.StaffType, entity.Phone, entity.Email, entity.Smark, entity.isEnabled == true ? 1 : 0);
+                return insert;
+            }
+            else
+            {
+                string update = "UPDATE Staffinfo  SET StaffName='{0}',LoginName='{1}',LoginPwd='{2}',StaffType='{3}',Phone='{4}',Email='{5}',Smark='{6}',isEnabled={7} WHERE Scid={8}";
+                update = string.Format(update, entity.StaffName, entity.LoginName, entity.LoginPwd, entity.StaffType, entity.Phone, entity.Email, entity.Smark, entity.isEnabled == true ? 1 : 0, entity.Sid);
+                return update;
             }
         }
     }

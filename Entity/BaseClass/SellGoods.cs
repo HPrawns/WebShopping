@@ -58,7 +58,7 @@ namespace Entity.BaseClass
         /// <summary>
         /// 销售时间
         /// </summary>
-        [DataContextAttribute("Sellcount")]
+        [DataContextAttribute("Selltime")]
         public Nullable<DateTime> Selltime
         {
             get { return selltime; }
@@ -68,7 +68,7 @@ namespace Entity.BaseClass
         /// <summary>
         /// 备注说明
         /// </summary>
-        [DataContextAttribute("Sellcount")]
+        [DataContextAttribute("Sgmark")]
         public string Sgmark
         {
             get { return sgmark; }

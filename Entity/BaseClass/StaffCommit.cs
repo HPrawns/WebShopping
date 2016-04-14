@@ -14,7 +14,7 @@ namespace Entity.BaseClass
     {
         private int scid;
         /// <summary>
-        /// 商品表主键
+        /// 评论表主键
         /// </summary>
         [DataContextAttribute("Scid")]
         public int Scid
@@ -76,11 +76,21 @@ namespace Entity.BaseClass
             get { return backinfo; }
             set { backinfo = value; }
         }
+        private Nullable<DateTime> commitdate;
+        /// <summary>
+        /// 评论日期
+        /// </summary>
+        [DataContextAttribute("Commitdate")]
+        public Nullable<DateTime> Commitdate
+        {
+            get { return commitdate; }
+            set { commitdate = value; }
+        }
         private bool isenabled;
         /// <summary>
         /// 是否启用
         /// </summary>
-        [DataContextAttribute("GoodsScore")]
+        [DataContextAttribute("isEnabled")]
         public bool isEnabled
         {
             get { return isenabled; }
