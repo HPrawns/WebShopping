@@ -29,7 +29,6 @@ namespace BLL.Service
 
             return new DB_Goods().test(entity);
         }
-
         /// <summary>
         /// 更新商品类型
         /// </summary>

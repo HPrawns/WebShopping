@@ -17,7 +17,7 @@ namespace DB
     {
         Utility Uy = new Utility();
         DBhelp DB = new DBhelp();
-
+        DB_Option db_option = new DB_Option();
         /// <summary>
         /// 获取商品数据
         /// </summary>
@@ -34,6 +34,13 @@ namespace DB
                     query = query.Where(a => a.GoodsName.Contains(entity.GoodsName));
                 }
                 var list = query.Skip(entity.PageIndex).Take(entity.PageSize).ToList();
+                var option = db_option.GetGoodsType("");
+
+                list.ForEach(f =>
+                {
+                    var optiondata = option.Where(a => a.Selfcode == f.GoodsType).FirstOrDefault();
+                    f.GoodsType = optiondata != null ? optiondata.Typename : f.GoodsType;
+                });
                 return new JsonHelp().JsonMsg(true, "获取成功!", list.Count, list);
             }
             catch (Exception ex)

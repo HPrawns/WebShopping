@@ -61,6 +61,8 @@ namespace DB
                     data.Gid = entity.Gid == null ? data.Gid : entity.Gid;
                     data.Uid = entity.Uid == null ? data.Uid : entity.Uid;
                     data.Sid = entity.Sid == null ? data.Sid : entity.Sid;
+                    data.Commitinfo = entity.Commitinfo;
+                    data.Backinfo = entity.Backinfo;
                     data.Commitdate = DateTime.Now;
                     data.isEnabled = entity.isEnabled;
                     string strsql = SqlString(entity);

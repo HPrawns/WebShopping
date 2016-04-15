@@ -4,6 +4,7 @@
 <link href="../Css/Admin_Css.css?ver=<%=ver%>" rel="stylesheet" />
 <script src="../Js/Admin_Js.js?ver=<%=ver%>"></script>
 <link href="../Css/OverrideStyle.css" rel="stylesheet" />
+<script src="../Js/GirdData.js?ver=<%=ver%>"></script>
 <div class="slideMenu">
     <ul class="slideMenu_ul">
         <li><a href="../StaffPage/GoodsView.aspx">商品管理</a></li>

@@ -43,7 +43,53 @@ namespace DB
             }
         }
 
+        /// <summary>
+        /// 更新员工数据
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public string UpdateSellGoods(StaffinfoEntity entity)
+        {
+            try
+            {
+                string sql = "select *from Staffinfo where 1=1";
+                int i = 0;
+                if (entity.Sid != null)
+                {
+                    sql += " and Sid=" + entity.Sid;
 
+                    var data = Uy.GetData<Staffinfo>(sql).FirstOrDefault();
+
+                    data.StaffName = entity.StaffName == null ? data.StaffName : entity.StaffName;
+                    data.StaffType = entity.StaffType == null ? data.StaffType : entity.StaffType;
+                    data.LoginPwd = entity.LoginPwd == null ? data.LoginPwd : entity.LoginPwd;
+                    data.Phone = entity.Phone == null ? data.Phone : entity.Phone;
+                    data.Email = entity.Email == null ? data.Email : entity.Email;
+                    data.Smark = entity.Smark;
+                    data.isEnabled = entity.isEnabled;
+                    string strsql = SqlString(entity);
+                    i = DB.Update(strsql);
+                }
+                else
+                {
+                    string strsql = SqlString(entity);
+                    i = DB.Update(strsql);
+                }
+                if (i > 0)
+                {
+                    return new JsonHelp().JsonMsg(true, "保存成功!", 0);
+                }
+                else
+                {
+                    return new JsonHelp().JsonMsg(false, "保存失败!", 0);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new JsonHelp().JsonMsg(false, "保存失败!" + ex.Message, 0);
+            }
+
+        }
         /// <summary>
         /// 组装执行语句
         /// </summary>

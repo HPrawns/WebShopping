@@ -68,6 +68,7 @@
     <Content Include="Css\Admin_Css.css" />
     <Content Include="Img\bg.jpg" />
     <Content Include="Js\Admin_Js.js" />
+    <Content Include="Js\GirdData.js" />
     <Content Include="StaffPage\GoodsView.aspx" />
     <Content Include="StaffPage\Login.aspx" />
     <Content Include="Css\Initialization.css" />
@@ -88,6 +89,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\OptionCommon.ashx.cs">
+      <DependentUpon>OptionCommon.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Common\Tools.cs" />
     <Compile Include="Controls\Menu_admin.ascx.cs">
       <DependentUpon>Menu_admin.ascx</DependentUpon>
@@ -198,6 +202,7 @@
     <Content Include="font-awesome-4.5.0\scss\_rotated-flipped.scss" />
     <Content Include="font-awesome-4.5.0\scss\_stacked.scss" />
     <Content Include="font-awesome-4.5.0\scss\_variables.scss" />
+    <Content Include="Common\OptionCommon.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -4,9 +4,9 @@
 /*默认文本框的样式*/
 ._input_default {
     width: 180px;
-    font: 16px/30px Helvetica, Verdana, sans-serif;
-    height: 28px;
-    padding: 6px 12px;
+    font: 14px/25px Helvetica, Verdana, sans-serif;
+    height: 25px;
+    padding: 3px 6px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -31,6 +31,12 @@
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
 }
+
+/*下拉*/
+.select_default {
+    width: 180px;
+    height: 31.5px;
+}
 /*重写按钮功能的超链接标签*/
 ._btn_a {
     display: block;
@@ -41,11 +47,34 @@
     font: 14px/30px Helvetica, Verdana, sans-serif;
     text-decoration: none;
     text-align: center;
-    transition: background-color 500ms;
+    transition: background-color 400ms;
+    margin-left: 15px;
+    float: left;
+    border-radius: 4px;
 }
 
     ._btn_a:hover {
         background-color: #00809F;
+    }
+/*提交型的按钮冲写*/
+._btn_a_submit {
+    font-weight: bold;
+    color: white;
+    background-color: #A23608;
+}
+
+    ._btn_a_submit:hover {
+        background-color: #DE5D25;
+    }
+/*重置型的按钮重写*/
+._btn_a_reset {
+    font-weight: bold;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: black;
+}
+    ._btn_a_reset:hover {
+        background-color: #ccc;
     }
 /*链接功能的超链接标签*/
 ._link_a {
@@ -82,5 +111,47 @@
         }
         /*鼠标停留的行背景颜色*/
         ._data_table tbody tr:hover {
-            background-color: #C0C0C0;
+            background-color: #DEDEDE;
         }
+/*分页的区域样式*/
+#pagediv {
+    border: 0px solid red;
+    width: auto;
+    font: 14px/30px Helvetica, Verdana, sans-serif;
+    height: 25px;
+    display: block;
+}
+
+    #pagediv div:nth-child(1) {
+        border: 0px solid red;
+        height: 50px;
+        width: 470px;
+        margin: 0px auto;
+        text-align: center;
+    }
+
+._pageindex_a {
+    margin: 0 auto;
+    display: block;
+    height: 20px;
+    width: 50px;
+    font: 12px/20px Helvetica, Verdana, sans-serif;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color color 500ms;
+    margin: 5px 1px;
+    float: left;
+    border-radius: 2px;
+    color: black;
+    border: 1px solid #D0D1D7;
+}
+
+._pageindex_a_click {
+    background-color: #005A98;
+    color: white;
+}
+
+._pageindex_a:hover {
+    color: white;
+    background-color: #008BED;
+}

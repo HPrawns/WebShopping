@@ -176,7 +176,7 @@ namespace Entity.BaseClass
         }
         private Nullable<DateTime> logindate;
         /// <summary>
-        /// 用户备注
+        /// 登录时间
         /// </summary>
         [DataContextAttribute("LoginDate")]
         public Nullable<DateTime> LoginDate

@@ -43,6 +43,23 @@ namespace DB
                 return new JsonHelp().JsonMsg(false, "获取失败!" + ex.Message, 0);
             }
         }
+        public List<GoodsType> GetGoodsType(string Selfcode)
+        {
+            try
+            {
+                string sql = "select *from GoodsType  where  1=1 ";
+                if (!string.IsNullOrEmpty(Selfcode))
+                {
+                    sql += "  and selfcode='" + Selfcode + "' ";
+                }
+                var query = Uy.GetData<GoodsType>(sql);
+                return query;
+            }
+            catch (Exception)
+            {
+                throw new Exception();
+            }
+        }
         /// <summary>
         /// 更新商品类型
         /// </summary>

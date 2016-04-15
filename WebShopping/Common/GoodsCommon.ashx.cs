@@ -32,7 +32,7 @@ namespace WebShopping.Common
             switch (action)
             {
                 case "query":
-                    backjson = test(data);
+                    backjson = GetGoodsData(data);
                     break;
                 default:
                     break;
@@ -45,29 +45,16 @@ namespace WebShopping.Common
         /// <returns></returns>
         public string GetGoodsData(string jsondata)
         {
-            GoodsEntity ge = new GoodsEntity();
-            ge.PageIndex = 0;
-            ge.PageSize = 15;
-            var query = gs.GetGoodsData(ge);
-            return new JsonHelp().JsonMsg(true, "获取成功", 0, query);
+            GoodsEntity ge = new JsonHelp().ParseEntity<GoodsEntity>(jsondata);
+            ge.PageIndex = (ge.PageIndex - 1) * ge.PageSize;
+            return gs.GetGoodsData(ge);
+
         }
         public string test(string jsondata)
         {
-            GoodsTypeEntity ge = new GoodsTypeEntity();
-            ge.Goodsinfo = "cvbvc";
-            ge.Goodsmark = "asdasd";
-            ge.isEnabled = true;
-            ge.Parentcode = "";
-            ge.Selfcode = "123";
-            ge.Typename = "舒服多";
-
-
-            return gs.UpdateGoodsType(ge);
-
-            //GoodsEntity ge = new GoodsEntity();
-            //ge = new JsonHelp().ParseEntity<GoodsEntity>(jsondata);
-            //ge.PageIndex = (ge.PageIndex - 1) * ge.PageSize;
-            //return gs.test(ge);
+            GoodsEntity ge = new JsonHelp().ParseEntity<GoodsEntity>(jsondata);
+            ge.PageIndex = (ge.PageIndex - 1) * ge.PageSize;
+            return gs.GetGoodsData(ge);
         }
     }
 }
