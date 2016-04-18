@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GoodsEdit.aspx.cs" Inherits="WebShopping.StaffPage.GoodsEdit" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GoodsTypeEdit.aspx.cs" Inherits="WebShopping.StaffPage.GoodsTypeEdit" %>
 
 <%@ Register Src="~/Controls/Menu_left_goods.ascx" TagPrefix="uc1" TagName="Menu_left_goods" %>
 <%@ Register Src="~/Controls/Menu_admin.ascx" TagPrefix="uc1" TagName="Menu_admin" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>商品编辑</title>
 </head>
@@ -22,14 +22,13 @@
             $(function () {
                 tipbox = new TipBox();
                 tipbox.init();
-                BindOption("goodstype", "goodstype");
+                //        BindOption("goodstype", "goodstype");
                 if (actiontype == "edit") {
-                    BindData();
+                    //BindData();
                 }
                 else {
                     $("title").html("商品添加");
                 }
-
             });
             //提交数据
             function SubmitData() {
@@ -85,31 +84,28 @@
                 <div class="_data_div_edit">
                     <table class="_data_table_edit" id="_goods_edit">
                         <tr>
-                            <td>商品名称：</td>
+                            <td>类型名称：</td>
                             <td>
-                                <input class="_input_default" name="goodsname" id="goodsname" />
-                                <input style="display: none" name="gid" id="gid" /></td>
-                            <td>商品编码：</td>
+                                <input class="_input_default" name="typename" id="typename" />
+                                <input style="display: none" name="gtid" id="gtid" /></td>
+                            <td>类型编码：</td>
                             <td>
-                                <input class="_input_default" name="goodscode" id="goodscode" disabled="disabled" /></td>
+                                <select class="select_default" id="selfcode" name="selfcode">
+                                </select>
+                            </td>
                         </tr>
                         <tr>
-                            <td>商品类型：</td>
+                            <td>父菜单编码：</td>
                             <td>
-                                <select class="select_default" id="goodstype" name="goodstype">
+                                <select class="select_default" id="parentcode" name="parentcode">
                                 </select></td>
-
-                            <td>商品价格：</td>
+                            <td>是否启用：</td>
                             <td>
-                                <input class="_input_default" name="goodsprice" id="goodsprice" /></td>
-                        </tr>
-                        <tr>
-                            <td>商品产地：</td>
-                            <td>
-                                <input class="_input_default" name="goodsplace" id="goodsplace" /></td>
-                            <td>商品评分：</td>
-                            <td>
-                                <input class="_input_default" name="goodsscore" id="goodsscore" disabled="disabled" /></td>
+                                <select class="select_default" id="isenabled" name="isenabled">
+                                    <option value="true">是</option>
+                                    <option value="false">否</option>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td>商品备注：</td>
@@ -118,17 +114,6 @@
                             <td>商品说明：</td>
                             <td>
                                 <input class="_input_default" name="goodsinfo" id="goodsinfo" /></td>
-                        </tr>
-                        <tr>
-                            <td>是否启用：</td>
-                            <td>
-                                <select class="select_default" id="isenabled" name="isenabled">
-                                    <option value="true">是</option>
-                                    <option value="false">否</option>
-                                </select>
-                            </td>
-                            <td></td>
-                            <td></td>
                         </tr>
                         <tr>
                             <td></td>

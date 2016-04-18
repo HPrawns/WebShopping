@@ -10,7 +10,7 @@
 namespace WebShopping.StaffPage {
     
     
-    public partial class UsersView {
+    public partial class GoodsTypeView {
         
         /// <summary>
         /// Head1 控件。

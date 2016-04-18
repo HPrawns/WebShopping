@@ -73,6 +73,8 @@
     <Content Include="Js\GirdData.js" />
     <Content Include="Js\TipBox.js" />
     <Content Include="StaffPage\GoodsEdit.aspx" />
+    <Content Include="StaffPage\GoodsTypeEdit.aspx" />
+    <Content Include="StaffPage\GoodsTypeView.aspx" />
     <Content Include="StaffPage\GoodsView.aspx" />
     <Content Include="StaffPage\Login.aspx" />
     <Content Include="Css\Initialization.css" />
@@ -132,6 +134,20 @@
     </Compile>
     <Compile Include="StaffPage\GoodsEdit.aspx.designer.cs">
       <DependentUpon>GoodsEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffPage\GoodsTypeEdit.aspx.cs">
+      <DependentUpon>GoodsTypeEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffPage\GoodsTypeEdit.aspx.designer.cs">
+      <DependentUpon>GoodsTypeEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffPage\GoodsTypeView.aspx.cs">
+      <DependentUpon>GoodsTypeView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffPage\GoodsTypeView.aspx.designer.cs">
+      <DependentUpon>GoodsTypeView.aspx</DependentUpon>
     </Compile>
     <Compile Include="StaffPage\GoodsView.aspx.cs">
       <DependentUpon>GoodsView.aspx</DependentUpon>

@@ -78,8 +78,13 @@ JqTable.prototype.LoadData = function () {
                 _datatable.count = e.count;
                 _datatable.DataArr = e.content;
             }
+            else {
+                tipbox.error({ message: e.mess });
+            }
         },
-        error: function (e) { }
+        error: function (e) {
+            tipbox.error({ message: e.mess });
+        }
     });
     this.BindData();
     this.PageInit();
@@ -127,7 +132,7 @@ JqTable.prototype.BindData = function () {
         htmls = "";
     }
     if (tbwidht < 1020) {
-        $("#" + _datatable.tableid).css("width",1020);
+        $("#" + _datatable.tableid).css("width", 1020);
     }
     else {
         $("#" + _datatable.tableid).css("width", parseInt(tbwidht) + 50);
@@ -213,8 +218,14 @@ function BindOption(selid, types) {
             if (e.success) {
                 data = e.content;
             }
+            else {
+                tipbox.error({ message: e.mess });
+            }
+            LoadEnd();
         },
-        error: function (e) { }
+        error: function (e) {
+            tipbox.error({ message: e.mess });
+        }
     });
     for (var i = 0; i < data.length; i++) {
         $("#" + selid).append("<option value='" + data[i].selfcode + "'>" + data[i].typename + "</option>");
@@ -230,4 +241,13 @@ function GetQueryString(name) {
     reg = null;
     r = null;
     return context == null || context == "" || context == "undefined" ? "" : context;
+}
+///载入完成
+function LoadEnd() {
+    $(".spinner").hide();
+    $(".spinner_div").hide();
+}
+function LoadStart() {
+    $(".spinner_div").show();
+    $(".spinner").show();
 }

@@ -20,6 +20,8 @@ TipBox.prototype.init = function () {
     }
 
     $("." + this.tipboxClass).css({ top: (document.documentElement.clientHeight - 220) / 2, left: (document.documentElement.clientWidth - 360) / 2 });
+
+    $(".spinner").css({ top: (document.documentElement.clientHeight - 60) / 2, left: (document.documentElement.clientWidth - 50) / 2 });
 }
 /*
     title:提示标题 
@@ -46,6 +48,26 @@ TipBox.prototype.message = function (obj) {
     $("#" + this.tipboxDiv).slideDown();
     $("." + this.tipboxClass).slideDown();
 
+}
+TipBox.prototype.error = function (obj) {
+    var _box = this;
+    if (typeof (obj.title) == "undefined" || obj.title == "") {
+        obj.title = "温馨提示";
+    }
+    if (typeof (obj.message) == "undefined" || obj.message == "") {
+        obj.message = "操作异常!请重试!";
+    }
+    if (typeof (obj.type) == "undefined" || obj.type == "") {
+        obj.type = "error";
+    }
+    $("." + this.tipboxClass).find($("#tiptitle")).html(obj.title);
+    $("." + this.tipboxClass).find($("#tipmessage").html(obj.message));
+    $("._tipbox_content_img").addClass("_tipbox_content_img_error");
+    $("." + this.tipboxClass).find("#SureBtn").click(function () {
+        _box.close();
+    });
+    $("#" + this.tipboxDiv).slideDown();
+    $("." + this.tipboxClass).slideDown();
 }
 TipBox.prototype.close = function () {
     $("." + this.tipboxClass).hide();

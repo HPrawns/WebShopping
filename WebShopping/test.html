@@ -111,7 +111,87 @@
                 -moz-box-shadow: 0 0 3px #00B4E1;
                 box-shadow: 0 0 3px #00B4E1;
             }
+               /*提示框相关的样式*/
+        #_tipbox_div {
+            position: fixed;
+            background-color: #D0D1D7;
+            height: 100%;
+            width: 100%;
+            opacity: 0.6;
+            display: block;
+            /*display: none;*/
+            left: 0;
+            top: 0;
+            overflow: hidden;
+            z-index: 999;
+        }
 
+        ._tipbox {
+            border: 5px solid #ccc;
+            margin: 15% 35%;
+            width: 360px;
+            height: 220px;
+            background-color: white;
+            opacity: 1;
+            border-radius: 2px;
+            position: fixed;
+            z-index: 99999;
+        }
+
+        ._tipbox_title {
+            width: 100%;
+            height: 35px;
+            border: 0px solid black;
+            line-height: 35px;
+        }
+
+        ._tipbox_content {
+            width: 235px;
+            height: 115px;
+            margin: 10px 10px;
+            /*border: 1px solid blue;*/
+            line-height: 34px;
+            border-radius: 5px;
+            padding: 5px 50px 40px 50px;
+        }
+
+        ._tipbox_table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+            ._tipbox_table td {
+                padding: 1em 0;
+                line-height: 20px;
+                font-weight: bold;
+            }
+
+        ._tipbox_content_img {
+            width: 32px;
+            height: 32px;
+            text-align: right;
+            background-image: url("Img/component.png");
+            background-position: -68px -185px;
+            background-repeat: no-repeat;
+        }
+
+        ._tipbox_title_colse {
+            float: right;
+            background: url("Img/controls.png") no-repeat -25px 0;
+            width: 25px;
+            height: 25px;
+            text-indent: -9999px;
+            margin-top: 4px;
+        }
+
+        ._btn_a_tip {
+            float: right;
+            background-color: #46831A;
+        }
+
+            ._btn_a_tip:hover {
+                background-color: #60B61E;
+            }
     </style>
     <script>
         var goods = new JqTable("_datatable_goods");
@@ -245,6 +325,63 @@
             var _pagebox = $("#" + obj);
             $("a[indexnumber]", _pagebox).removeClass("_pageindex_a_click");
             $("a[indexnumber=" + pageindex + "]", _pagebox).addClass("_pageindex_a_click");
+        }
+        var tipbox = {};
+        $(function () {
+            tipbox = new TipBox();
+            tipbox.init();
+            tipbox.message({ title: "asdsadsa", message: "飒沓", type: "success", callback: "testfunction" });
+        });
+        function TipBox() {
+            this.tipboxDiv = "_tipbox_div";
+            this.tipboxClass = "_tipbox";
+        }
+
+        TipBox.prototype.init = function () {
+            var tipbox_div = $("#" + this.tipboxDiv);
+            if (tipbox_div.length == 0) {
+                tipbox_div = $("<div id='" + this.tipboxDiv + "'></div>")
+                $("body").append(tipbox_div);
+            }
+            var _tipbox = $("." + this.tipboxClass);
+            if (_tipbox.length == 0) {
+                tipbox_div = '<div class="' + this.tipboxClass + '">' +
+                    ' <div class="_tipbox_title"><span style="margin-left: 15px;"  id="tiptitle">温馨提醒</span><div onclick="tipbox.close()" class="_tipbox_title_colse"></div></div>' +
+                    '<div class="_tipbox_content"><table class="_tipbox_table"><tr><td style="width: 45px;"><div class="_tipbox_content_img"></div></td><td><span id="tipmessage">保存成功!</span></td></tr>' +
+                    ' <tr><td></td><td></td></tr>' +
+                    ' <tr><td></td><td><a class="_btn_a _btn_a_tip" id="SureBtn">确定</a></td></tr></table></div></div>';
+                $("body").append(tipbox_div);
+            }
+        }
+        /*
+            title:提示标题 
+            type:提示类型  success   information error
+            message:提示内容
+            callback:回调函数
+           */
+        TipBox.prototype.message = function (obj) {
+            if (typeof (obj.title) == "undefined" || obj.title == "") {
+                obj.title = "温馨提示";
+            }
+            if (typeof (obj.message) == "undefined" || obj.message == "") {
+                obj.message = "保存成功!";
+            }
+            if (typeof (obj.type) == "undefined" || obj.type == "") {
+                obj.type = "success";
+            }
+            if (typeof (obj.callback) == "undefined" || obj.callback == "") {
+                obj.callback = "";
+            }
+            $("." + this.tipboxClass).find($("#tiptitle")).html(obj.title);
+            $("." + this.tipboxClass).find($("#tipmessage").html(obj.message));
+            $("." + this.tipboxClass).find("#SureBtn").click(eval(obj.callback));
+            $("#" + this.tipboxDiv).show();
+            $("." + this.tipboxClass).show();
+
+        }
+        TipBox.prototype.close = function () {
+            $("." + this.tipboxClass).hide();
+            $("#" + this.tipboxDiv).hide();
         }
 
 

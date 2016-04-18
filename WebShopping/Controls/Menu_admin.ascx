@@ -6,6 +6,12 @@
 <script src="../Js/TipBox.js?ver=<%=ver%>"></script>
 <link href="../Css/OverrideStyle.css" rel="stylesheet" />
 <script src="../Js/GirdData.js?ver=<%=ver%>"></script>
+<script>
+    $(function () {
+        var slideMenuObj = new slideMenu("slideMenu", "hrdiv", 500);
+        slideMenuObj.Init();
+    });
+</script>
 <div class="slideMenu">
     <ul class="slideMenu_ul">
         <li><a href="../StaffPage/GoodsView.aspx">商品管理</a></li>
