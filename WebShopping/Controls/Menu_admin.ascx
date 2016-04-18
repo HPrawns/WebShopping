@@ -3,6 +3,7 @@
 <link href="../Css/Initialization.css" rel="stylesheet" />
 <link href="../Css/Admin_Css.css?ver=<%=ver%>" rel="stylesheet" />
 <script src="../Js/Admin_Js.js?ver=<%=ver%>"></script>
+<script src="../Js/TipBox.js?ver=<%=ver%>"></script>
 <link href="../Css/OverrideStyle.css" rel="stylesheet" />
 <script src="../Js/GirdData.js?ver=<%=ver%>"></script>
 <div class="slideMenu">

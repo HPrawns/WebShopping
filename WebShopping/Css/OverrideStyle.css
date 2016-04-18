@@ -34,7 +34,7 @@
 
 /*下拉*/
 .select_default {
-    width: 180px;
+    width: 193px;
     height: 31.5px;
 }
 /*重写按钮功能的超链接标签*/
@@ -47,7 +47,7 @@
     font: 14px/30px Helvetica, Verdana, sans-serif;
     text-decoration: none;
     text-align: center;
-    transition: background-color 400ms;
+    transition: background-color 200ms;
     margin-left: 15px;
     float: left;
     border-radius: 4px;
@@ -60,11 +60,11 @@
 ._btn_a_submit {
     font-weight: bold;
     color: white;
-    background-color: #A23608;
+    background-color: #B22E00;
 }
 
     ._btn_a_submit:hover {
-        background-color: #DE5D25;
+        background-color: #FF4400;
     }
 /*重置型的按钮重写*/
 ._btn_a_reset {
@@ -73,6 +73,7 @@
     background-color: white;
     color: black;
 }
+
     ._btn_a_reset:hover {
         background-color: #ccc;
     }
@@ -87,8 +88,13 @@
         text-decoration: underline;
     }
 /*数据展示类型的table*/
+._data_div {
+    /*border:1px solid red;*/
+    overflow: auto;
+    height: 558px;
+}
+
 ._data_table {
-    width: 100%;
     font: 14px/30px Helvetica, Verdana, sans-serif;
     border: 0px solid #00809F;
     border-collapse: collapse;
@@ -113,6 +119,24 @@
         ._data_table tbody tr:hover {
             background-color: #DEDEDE;
         }
+/*编辑区域型的table*/
+._data_div_edit {
+    border: 0px solid red;
+    width: 950px;
+    height: 670px;
+    margin: 0 auto;
+}
+
+._data_table_edit {
+    font: 14px/30px Helvetica, Verdana, sans-serif;
+    border: 0px solid #00809F;
+    border-collapse: collapse;
+    margin: 5px auto;
+}
+
+    ._data_table_edit td {
+        padding: 0.7em 1.2em;
+    }
 /*分页的区域样式*/
 #pagediv {
     border: 0px solid red;
@@ -155,3 +179,84 @@
     color: white;
     background-color: #008BED;
 }
+/*提示框相关的样式*/
+#_tipbox_div {
+    position: fixed;
+    background-color: #D0D1D7;
+    height: 100%;
+    width: 100%;
+    opacity: 0.6;
+    display: block;
+    display: none;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    z-index: 999;
+}
+
+._tipbox {
+    border: 5px solid #ccc;
+    width: 360px;
+    height: 220px;
+    background-color: white;
+    opacity: 1;
+    border-radius: 2px;
+    position: absolute;
+    z-index: 99999;
+    display:none;
+}
+
+._tipbox_title {
+    width: 100%;
+    height: 35px;
+    border: 0px solid black;
+    line-height: 35px;
+}
+
+._tipbox_content {
+    width: 235px;
+    height: 115px;
+    margin: 10px 10px;
+    /*border: 1px solid blue;*/
+    line-height: 34px;
+    border-radius: 5px;
+    padding: 5px 50px 40px 50px;
+}
+
+._tipbox_table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    ._tipbox_table td {
+        padding: 1em 0;
+        line-height: 20px;
+        font-weight: bold;
+    }
+
+._tipbox_content_img {
+    width: 32px;
+    height: 32px;
+    text-align: right;
+    background-image: url("../Img/component.png");
+    background-position: -68px -185px;
+    background-repeat: no-repeat;
+}
+
+._tipbox_title_colse {
+    float: right;
+    background: url("../Img/controls.png") no-repeat -25px 0;
+    width: 25px;
+    height: 25px;
+    text-indent: -9999px;
+    margin-top: 4px;
+}
+/*提示区域按钮重写*/
+._btn_a_tip {
+    float: right;
+    background-color: #46831A;
+}
+
+    ._btn_a_tip:hover {
+        background-color: #60B61E;
+    }

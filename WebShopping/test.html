@@ -1,0 +1,291 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <style>
+             /*重写按钮功能的超链接标签*/
+        ._btn_a {
+            display: block;
+            height: 30px;
+            width: 100px;
+            background: #00B4E1;
+            color: white;
+            font: 14px/30px Helvetica, Verdana, sans-serif;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 500ms;
+        }
+
+            ._btn_a:hover {
+                background-color: #00809F;
+            }
+
+            ._btn_a:active {
+                top: 1px;
+            }
+        /*链接功能的超链接标签*/
+        ._link_a {
+            color: #00B4E1;
+            font: 14px/30px Helvetica, Verdana, sans-serif;
+            text-align: center;
+        }
+
+            ._link_a:hover {
+                text-decoration: underline;
+            }
+        /*数据展示类型的table*/
+        ._data_table {
+            font: 14px/30px Helvetica, Verdana, sans-serif;
+            width: 100%;
+            border: 0px solid #00809F;
+            border-collapse: collapse;
+            border: 1px solid #00809F;
+        }
+
+            ._data_table thead th td {
+                border: 1px solid #00809F;
+                text-align: center;
+            }
+
+            ._data_table tbody tr {
+                text-align: center;
+                transition: background-color 200ms;
+            }
+
+                ._data_table tbody tr td {
+                    border: 1px solid #00809F;
+                }
+
+                ._data_table tbody tr:hover {
+                    background-color: #C0C0C0;
+                }
+        /*分页的区域样式*/
+        #pagediv {
+            border: 0px solid red;
+            width: 1200px;
+            font: 14px/30px Helvetica, Verdana, sans-serif;
+            height: 25px;
+            display: block;
+        }
+
+        ._pageindex_a {
+            margin: 0 auto;
+            display: block;
+            height: 20px;
+            width: 50px;
+            font: 12px/20px Helvetica, Verdana, sans-serif;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color color 500ms;
+            margin: 1px 1px;
+            float: left;
+            border-radius: 2px;
+            color: black;
+            border: 1px solid #D0D1D7;
+        }
+
+        ._pageindex_a_click {
+            background-color: #005A98;
+            color: white;
+        }
+
+        ._pageindex_a:hover {
+            color: white;
+            background-color: #008BED;
+        }
+        /*默认文本框的样式*/
+        ._inputdefault {
+            width: 180px;
+            font: 16px/30px Helvetica, Verdana, sans-serif;
+            height: 28px;
+            padding: 6px 12px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: box-shadow 500ms;
+        }
+
+            ._inputdefault:focus {
+                -webkit-box-shadow: 0 0 3px #00B4E1;
+                -moz-box-shadow: 0 0 3px #00B4E1;
+                box-shadow: 0 0 3px #00B4E1;
+            }
+
+    </style>
+    <script>
+        var goods = new JqTable("_datatable_goods");
+        goods.LoadData();
+        function JqTable(tableid) {
+            this.tableid = tableid;
+            this.table = $("#" + tableid);
+            this.PageIndex = 1;
+            this.PageSize = this.table.attr("PageSize");
+            this.count = 0;
+            this.DataArr = [];
+            this.PageCount = 0;
+            this.option = {
+                action: this.table.attr("action"),
+                RqUrl: this.table.attr("RqUrl")
+            };
+        }
+        var divCont = $("<div id='pagediv'>");
+        //分页初始化
+        JqTable.prototype.PageInit = function () {
+            var qindex = 0;
+            var _datatable = this;
+            _datatable.PageCount = parseInt(this.count / this.PageSize) + 1;     //总页数
+
+            divCont.empty();
+            divCont.insertAfter(this.table);
+            var html = '<a href="javascript:void(0)" class="_pageindex_a" indextype="First"  >首页</a>' +
+                               '<a href="javascript:void(0)" class="_pageindex_a" indextype="Prev">上一页</a>';
+            for (var q = (_datatable.PageIndex - 1) ; q < _datatable.PageCount; q++) {
+                html += '<a href="javascript:void(0)" class="_pageindex_a " indextype="' + (q + 1) + '" indexnumber="' + (q + 1) + '">' + (q + 1) + '</a>';
+                if (_datatable.PageCount >= 5 && qindex == 4) {
+                    html += ' <span style="float: left">.........</span>';
+                    html += '<a href="javascript:void(0)" class="_pageindex_a" indextype="' + _datatable.PageCount + '"  indexnumber="' + _datatable.PageCount + '">' + _datatable.PageCount + '</a>';
+                    break;
+                }
+                qindex++;
+            }
+            html += '<a href="javascript:void(0)" class="_pageindex_a" indextype="Next">下一页</a>' +
+            '<a href="javascript:void(0)" class="_pageindex_a"  indextype="Last"  indexnumber="' + _datatable.PageCount + '">尾页</a>';
+            divCont.append(html);
+            var pagediv = $("#pagediv");
+            $("[indextype=First]").click(function () { _datatable.onFirst(this) });
+            $("[indextype=Prev]").click(function () { _datatable.onPrev(this) });
+            $("[indextype=Next]").click(function () { _datatable.onNext(this) });
+            $("[indextype=Last]").click(function () { _datatable.onLast(this) });
+            $("[indexnumber]").click(function () { _datatable.onPageGo(this) });
+            NowIndexClass("pagediv", _datatable.PageIndex);
+        }
+        //组装查询数据
+        JqTable.prototype.FormData = function () {
+            var query = {};
+            query.PageIndex = this.PageIndex;
+            query.PageSize = this.PageSize;
+            return query;
+        }
+        //加载数据
+        JqTable.prototype.LoadData = function () {
+            var _datatable = this;
+            $.ajax({
+                type: "POST",
+                //contentType: "application/json;charset=utf-8",// 这句可不要忘了。
+                url: "Common/" + this.option.RqUrl + ".ashx",
+                dataType: "JSON",
+                data: { action: this.option.action, data: JSON.stringify(this.FormData()) },
+                async: false,
+                success: function (e) {
+                    if (e.success) {
+                        _datatable.count = e.count;
+                        _datatable.DataArr = e.content;
+                    }
+
+                },
+                error: function (e) { }
+            });
+            this.BindData();
+            this.PageInit();
+        }
+        //绑定数据
+        JqTable.prototype.BindData = function () {
+            var _datatable = this;
+            var ths = $(_datatable.table).find("thead tr th");
+            var tbodys = $(_datatable.table).find("tbody");
+            tbodys.empty();
+            for (var i = 0; i < _datatable.DataArr.length; i++) {
+                var htmls = "<tr rownumber='" + i + "'>";
+                var item = _datatable.DataArr[i];
+                for (var j = 0; j < ths.length; j++) {
+                    htmls += "<td>" + item[$(ths[j]).attr("name")] + "</td>";
+                }
+                //console.log(item["gid"]);
+                htmls += "</tr>";
+                $(tbodys).append(htmls);
+                htmls = "";
+            }
+
+
+        }
+        //首页
+        JqTable.prototype.onFirst = function (obj) {
+            this.PageIndex = 1;
+            this.LoadData(this.PageIndex);
+        }
+        //上一页
+        JqTable.prototype.onPrev = function (obj) {
+            this.PageIndex -= 1;
+            if (this.PageIndex <= 0) { this.PageIndex = 1; return; }
+            this.LoadData(this.PageIndex);
+        }
+        //下一页
+        JqTable.prototype.onNext = function (obj) {
+            this.PageIndex += 1;
+            if (this.PageIndex >= this.PageCount) {
+                this.PageIndex = this.PageCount;
+            }
+            this.LoadData(this.PageIndex);
+        }
+        //尾页
+        JqTable.prototype.onLast = function (obj) {
+            this.PageIndex = this.PageCount;
+            this.LoadData(this.PageIndex);
+        }
+        //跳转页
+        JqTable.prototype.onPageGo = function (obj) {
+            var _obj = $(obj);
+            this.PageIndex = _obj.attr("indexnumber");
+
+            this.LoadData(this.PageIndex);
+        }
+        //为当前页提供类样式 obj=分页所在div的id
+        function NowIndexClass(obj, pageindex) {
+            var _pagebox = $("#" + obj);
+            $("a[indexnumber]", _pagebox).removeClass("_pageindex_a_click");
+            $("a[indexnumber=" + pageindex + "]", _pagebox).addClass("_pageindex_a_click");
+        }
+
+
+    </script>
+</head>
+<body>
+        <a href="javascript:void(0)" class="_btn_a" onclick="$_Ajax()">请点击</a>
+
+    <a href="javascript:void(0)" class="_link_a">链接标签</a>
+    <div style="width: 1210px">
+        <table class="_data_table" id="_datatable_goods" pagesize="15" action="query" rqurl="GoodsCommon">
+            <thead>
+                <tr>
+                    <!--<th name="gid">序号</th>
+                    <th name="goodsname">商品名称</th>
+                    <th name="goodscode">商品编码</th>
+                    <th name="goodsprice">商品价格</th>-->
+                    <th name="id">序号</th>
+                    <th name="name">商品名称</th>
+                    <th name="countrycode">商品编码</th>
+                    <th name="district">商品价格</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <!--    <div id="pagediv">
+            <a href="javascript:vodi(0)" class="_pageindex_a" indextype="onFirst">首页</a>
+            <a href="javascript:vodi(0)" class="_pageindex_a" indextype="onPrev">上一页</a>
+            <a href="javascript:vodi(0)" class="_pageindex_a" indextype="1">1</a>
+            <a href="javascript:vodi(0)" class="_pageindex_a" indextype="2">2</a>
+            <a href="javascript:vodi(0)" class="_pageindex_a" indextype="3">3</a>
+            <a href="javascript:vodi(0)" class="_pageindex_a" indextype="4">4</a>
+            <a href="javascript:vodi(0)" class="_pageindex_a" indextype="5">5</a>
+            <span style="float: left">.........</span>
+            <a href="javascript:vodi(0)" class="_pageindex_a" indextype="25">25</a>
+            <a href="javascript:vodi(0)" class="_pageindex_a" indextype="onNext">下一页</a>
+            <a href="javascript:vodi(0)" class="_pageindex_a" indextype="onLast">尾页</a>
+        </div>-->
+    </div>
+
+    <input class="_inputdefault" placeholder="常规文本框" />
+</body>
+</html>

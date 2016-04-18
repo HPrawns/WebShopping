@@ -84,9 +84,11 @@ JqTable.prototype.LoadData = function () {
     this.BindData();
     this.PageInit();
 }
+var tbwidht = 0;
 //绑定数据
 JqTable.prototype.BindData = function () {
     var _datatable = this;
+    tbwidht = 0;
     var ths = $(_datatable.table).find("thead tr th");
     var tbodys = $(_datatable.table).find("tbody");
     tbodys.empty();
@@ -107,7 +109,7 @@ JqTable.prototype.BindData = function () {
                         linkA.attr("rowIndex", j);
                         linkA.attr("funName", funName);
                         linkA.bind("click", function () {
-                            _datatable. LinkClick($(this).attr("funName"),item);
+                            _datatable.LinkClick($(this).attr("funName"), item);
                         });
                         td.append(linkA);
                         //  }
@@ -117,9 +119,18 @@ JqTable.prototype.BindData = function () {
             } else {
                 htmls.append("<td>" + values + "</td>");
             }
+            if ($(ths[j]).attr("width") != "" && $(ths[j]).attr("width") != undefined) {
+                tbwidht += parseInt($(ths[j]).attr("width"));
+            }
         }
         $(tbodys).append(htmls);
         htmls = "";
+    }
+    if (tbwidht < 1020) {
+        $("#" + _datatable.tableid).css("width",1020);
+    }
+    else {
+        $("#" + _datatable.tableid).css("width", parseInt(tbwidht) + 50);
     }
 }
 //首页
@@ -208,4 +219,15 @@ function BindOption(selid, types) {
     for (var i = 0; i < data.length; i++) {
         $("#" + selid).append("<option value='" + data[i].selfcode + "'>" + data[i].typename + "</option>");
     }
+}
+//读取URL参数
+function GetQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg);  //获取url中"?"符后的字符串并正则匹配
+    var context = "";
+    if (r != null)
+        context = r[2];
+    reg = null;
+    r = null;
+    return context == null || context == "" || context == "undefined" ? "" : context;
 }

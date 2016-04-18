@@ -67,8 +67,12 @@
     <Content Include="Controls\Menu_left_user.ascx" />
     <Content Include="Css\Admin_Css.css" />
     <Content Include="Img\bg.jpg" />
+    <Content Include="Img\component.png" />
+    <Content Include="Img\controls.png" />
     <Content Include="Js\Admin_Js.js" />
     <Content Include="Js\GirdData.js" />
+    <Content Include="Js\TipBox.js" />
+    <Content Include="StaffPage\GoodsEdit.aspx" />
     <Content Include="StaffPage\GoodsView.aspx" />
     <Content Include="StaffPage\Login.aspx" />
     <Content Include="Css\Initialization.css" />
@@ -85,6 +89,7 @@
     <Content Include="NewCssPage.html" />
     <Content Include="StaffPage\StaffView.aspx" />
     <Content Include="StaffPage\UsersView.aspx" />
+    <Content Include="test.html" />
     <Content Include="UserPage\Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -120,6 +125,13 @@
     </Compile>
     <Compile Include="Controls\Menu_left_user.ascx.designer.cs">
       <DependentUpon>Menu_left_user.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffPage\GoodsEdit.aspx.cs">
+      <DependentUpon>GoodsEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffPage\GoodsEdit.aspx.designer.cs">
+      <DependentUpon>GoodsEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="StaffPage\GoodsView.aspx.cs">
       <DependentUpon>GoodsView.aspx</DependentUpon>

@@ -34,6 +34,12 @@ namespace WebShopping.Common
                 case "query":
                     backjson = GetGoodsData(data);
                     break;
+                case "edit":
+                    backjson = GetGoodsDataByid(data);
+                    break;
+                case "update":
+                    backjson=Update(data);
+                    break;
                 default:
                     break;
             }
@@ -48,7 +54,24 @@ namespace WebShopping.Common
             GoodsEntity ge = new JsonHelp().ParseEntity<GoodsEntity>(jsondata);
             ge.PageIndex = (ge.PageIndex - 1) * ge.PageSize;
             return gs.GetGoodsData(ge);
-
+        }
+        /// <summary>
+        /// 更新数据
+        /// </summary>
+        /// <param name="jsondata"></param>
+        /// <returns></returns>
+        public string Update(string jsondata)
+        {
+            GoodsEntity ge = new JsonHelp().ParseEntity<GoodsEntity>(jsondata);
+            return gs.UpdateGoods(ge);
+        }
+        /// <summary>
+        /// 获取商品数据
+        /// </summary>
+        /// <returns></returns>
+        public string GetGoodsDataByid(string gid)
+        {
+            return gs.GetGoodsDataByid(gid);
         }
         public string test(string jsondata)
         {

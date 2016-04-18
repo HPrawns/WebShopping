@@ -23,12 +23,25 @@ namespace BLL.Service
 
             return new DB_Goods().GetGoodsData(entity);
         }
-
-        public string test(GoodsEntity entity)
+        /// <summary>
+        /// 获取商品数据(id)
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public string GetGoodsDataByid(string gid)
         {
-
-            return new DB_Goods().test(entity);
+            return new DB_Goods().GetGoodsDataByid(gid);
         }
+        /// <summary>
+        /// 更新商品
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public string UpdateGoods(GoodsEntity entity)
+        {
+            return new DB_Goods().UpdateGoods(entity);
+        }
+
         /// <summary>
         /// 更新商品类型
         /// </summary>
@@ -37,6 +50,11 @@ namespace BLL.Service
         public string UpdateGoodsType(GoodsTypeEntity entity)
         {
             return new DB_Option().UpdateGoodsType(entity);
+        }
+        public string test(GoodsEntity entity)
+        {
+
+            return new DB_Goods().test(entity);
         }
     }
 }

@@ -43,7 +43,7 @@
                 BindOption("goodstype", "goodstype");
             });
             function EditGoods(item) {
-                console.log(item);
+                location.href = "../StaffPage/GoodsEdit.aspx?gid=" + item.gid;
             }
         </script>
         <div class="_admin_body">
@@ -70,25 +70,26 @@
                         </tr>
                     </table>
                 </div>
-                <table class="_data_table" id="_datatable_goods" pagesize="15" action="query" rqurl="GoodsCommon">
-                    <thead>
-                        <tr>
-                            <th name="gid" width="80" celClick="{'修改':'EditGoods'}"><a>序号</a></th>
-                            <th name="goodsname" width="100">商品名称</th>
-                            <th name="goodscode">商品编码</th>
-                            <th name="goodstype">商品类型</th>
-                            <th name="goodsprice">商品价格</th>
-                            <th name="goodsplace">商品产地</th>
-                            <th name="goodsscore">商品评分</th>
-                            <th name="goodsplace">商品备注</th>
-                            <th name="goodsmark">商品说明</th>
-                            <th name="isenabled">是否启用</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-
+                <div class="_data_div">
+                    <table class="_data_table" id="_datatable_goods" pagesize="15" action="query" rqurl="GoodsCommon">
+                        <thead>
+                            <tr>
+                                <th name="gid" width="80" celclick="{'修改':'EditGoods'}"><a>序号</a></th>
+                                <th name="goodsname">商品名称</th>
+                                <th name="goodscode"   >商品编码</th>
+                                <th name="goodstype" >商品类型</th>
+                                <th name="goodsprice"  >商品价格</th>
+                                <th name="goodsplace"  >商品产地</th>
+                                <th name="goodsscore"  >商品评分</th>
+                                <th name="goodsmark"  >商品备注</th>
+                                <th name="goodsinfo"  >商品说明</th>
+                                <th name="isenabled"  >是否启用</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
