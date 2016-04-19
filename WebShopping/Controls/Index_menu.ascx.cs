@@ -4,16 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using WebShopping.BaseUI;
 
-
-namespace WebShopping.StaffPage
+namespace WebShopping.Controls
 {
-    public partial class GoodsView : BasePage
+    public partial class Index_menu : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-         
+
         }
     }
 }

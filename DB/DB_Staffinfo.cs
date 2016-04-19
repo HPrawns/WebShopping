@@ -44,6 +44,30 @@ namespace DB
         }
 
         /// <summary>
+        /// 登录
+        /// </summary>
+        /// <param name="loginname"></param>
+        /// <param name="loginpwd"></param>
+        /// <returns></returns>
+        public string Login(string loginname, string loginpwd)
+        {
+            string sql = "select *from Staffinfo where loginname='{0}' and loginpwd='{1}'";
+            sql = string.Format(sql, loginname, loginpwd);
+            var query = Uy.GetData<Staffinfo>(sql) as IEnumerable<Staffinfo>;
+            if (query.FirstOrDefault() != null)
+            {
+                if (query.Where(a => a.isEnabled == true).FirstOrDefault() == null)
+                {
+                    return new JsonHelp().JsonMsg(false, "登录失败!账号已失效!", 0);
+                }
+                return new JsonHelp().JsonMsg(true, "登录成功!", 0, query.FirstOrDefault());
+            }
+            else
+            {
+                return new JsonHelp().JsonMsg(false, "登录失败!账号或密码错误!", 0);
+            }
+        }
+        /// <summary>
         /// 更新员工数据
         /// </summary>
         /// <param name="entity"></param>

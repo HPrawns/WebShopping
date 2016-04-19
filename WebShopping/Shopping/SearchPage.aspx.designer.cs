@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace WebShopping {
+namespace WebShopping.Shopping {
     
     
-    public partial class index {
+    public partial class SearchPage {
         
         /// <summary>
         /// Index_menu 控件。
@@ -20,15 +20,6 @@ namespace WebShopping {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::WebShopping.Controls.Index_menu Index_menu;
-        
-        /// <summary>
-        /// Index_search 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::WebShopping.Controls.Index_search Index_search;
         
         /// <summary>
         /// Index_foot 控件。

@@ -26,7 +26,7 @@
                 goodstable.LoadData();
             });
             function EditGoods(item) {
-                location.href = "../StaffPage/GoodsEdit.aspx?type='edit'&gid=" + item.gid;
+                location.href = "../StaffPage/GoodsEdit.aspx?type=edit&gid=" + item.gid;
             }
         </script>
         <div class="_admin_body">

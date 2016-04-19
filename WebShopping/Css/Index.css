@@ -1,0 +1,90 @@
+﻿/*商城页面的样式*/
+div {
+    border: 1px solid red;
+    margin: 0px auto;
+}
+/*最外层的div暂时用蓝色边框辨识*/
+._head, ._body, ._topmenu {
+    border: 1px solid blue;
+}
+/*头部div 最外层DIV*/
+._head {
+    height: 450px;
+    width: 1210px;
+}
+/*头部左边 用于大菜单*/
+._head_left {
+    border: 1px solid red;
+    height: 430px;
+    width: 150px;
+    margin: 10px 10px;
+    float: left;
+}
+/*中间用于广告轮换*/
+._head_middle {
+    height: 430px;
+    width: 720px;
+    margin: 10px 10px;
+    float: left;
+}
+
+._head_right {
+    height: 430px;
+    margin: 10px 10px;
+    float: left;
+    width: 255px;
+}
+
+/*顶部的菜单栏*/
+._topmenu {
+    height: 35px;
+    width: 100%;
+    /*position:absolute;*/
+}
+/*中间部分最大div*/
+._body {
+    height: 1400px;
+    width: 1210px;
+}
+
+._body_left, ._body_right {
+    height: 1350px;
+    margin: 25px 10px;
+    float: left;
+}
+
+
+._body_left {
+    width: 863px;
+}
+
+._body_left_content {
+    width: 830px;
+    height: 315px;
+    margin: 15px 15px;
+}
+
+._body_right {
+    width: 290px;
+}
+
+._body_right_title {
+    height: 51px;
+    margin-top: 10px;
+}
+
+._body_right_content {
+    width: 280px;
+    height: 100px;
+    margin: 14px 5px;
+}
+/*脚部*/
+._foot {
+    height: 150px;
+    width: 1210px;
+}
+/*搜索区*/
+._search {
+    width: 1210px;
+    height: 55px;
+}

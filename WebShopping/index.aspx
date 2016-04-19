@@ -1,45 +1,57 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="WebShopping.index" %>
 
+<%@ Register Src="~/Controls/Index_menu.ascx" TagPrefix="uc1" TagName="Index_menu" %>
+<%@ Register Src="~/Controls/Index_foot.ascx" TagPrefix="uc1" TagName="Index_foot" %>
+<%@ Register Src="~/Controls/Index_search.ascx" TagPrefix="uc1" TagName="Index_search" %>
+
+
+
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>欢迎光临网上商城</title>
-    <script src="Js/Jquery_2.2.2.js"></script>
-    <link href="Css/Initialization.css" rel="stylesheet" />
-    <style>
-        div {
-            border: 1px solid red;
-            margin: 0px auto;
-        }
-        /*最外层的div暂时用蓝色边框辨识*/
-        ._head, ._body, ._topmenu {
-            border:1px solid blue;
-        }
-        /*头部div 最外层DIV*/
-        ._head {
-            height: 450px;
-            width: 1210px;
-        }
-        /*顶部的菜单栏*/
-        ._topmenu {
-            height:35px;
-            width:100%;
-            /*position:absolute;*/
-        }
-        /*中间部分最大div*/
-        ._body {
-            height:1400px;
-            width:1210px;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="_topmenu"></div>
-    <div class="_head">
+    <div class="_topmenu">
+        <uc1:Index_menu runat="server" ID="Index_menu" />
     </div>
-    <div class="_body"></div>
+    <div class="_search">
+        <uc1:Index_search runat="server" id="Index_search" />
+    </div>
+    <div class="_head">
+        <div class="_head_left"></div>
+        <div class="_head_middle"></div>
+        <div class="_head_right"></div>
+    </div>
+    <div class="_body">
+        <div class="_body_left">
+            <div class="_body_left_content"></div>
+            <div class="_body_left_content"></div>
+            <div class="_body_left_content"></div>
+            <div class="_body_left_content"></div>
+        </div>
+        <div class="_body_right">
+            <div class="_body_right_title"></div>
+            <div class="_body_right_content"></div>
+            <div class="_body_right_content"></div>
+            <div class="_body_right_content"></div>
+            <div class="_body_right_content"></div>
+            <div class="_body_right_content"></div>
+            <div class="_body_right_content"></div>
+            <div class="_body_right_content"></div>
+            <div class="_body_right_content"></div>
+             <div class="_body_right_content"></div>
+             <div class="_body_right_content"></div>
+            <div class="_body_right_content"></div>
+        </div>
+
+    </div>
+    <div class="_foot">
+        <uc1:Index_foot runat="server" id="Index_foot" />
+    </div>
 </body>
 </html>

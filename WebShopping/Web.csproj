@@ -61,17 +61,22 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Controls\Index_foot.ascx" />
+    <Content Include="Controls\Index_menu.ascx" />
+    <Content Include="Controls\Index_search.ascx" />
     <Content Include="Controls\Menu_admin.ascx" />
     <Content Include="Controls\Menu_left_goods.ascx" />
     <Content Include="Controls\Menu_left_staff.ascx" />
     <Content Include="Controls\Menu_left_user.ascx" />
     <Content Include="Css\Admin_Css.css" />
+    <Content Include="Css\Index.css" />
     <Content Include="Img\bg.jpg" />
     <Content Include="Img\component.png" />
     <Content Include="Img\controls.png" />
     <Content Include="Js\Admin_Js.js" />
     <Content Include="Js\GirdData.js" />
     <Content Include="Js\TipBox.js" />
+    <Content Include="Shopping\SearchPage.aspx" />
     <Content Include="StaffPage\GoodsEdit.aspx" />
     <Content Include="StaffPage\GoodsTypeEdit.aspx" />
     <Content Include="StaffPage\GoodsTypeView.aspx" />
@@ -96,10 +101,37 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseUI\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\LoginCommon.ashx.cs">
+      <DependentUpon>LoginCommon.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Common\OptionCommon.ashx.cs">
       <DependentUpon>OptionCommon.ashx</DependentUpon>
     </Compile>
     <Compile Include="Common\Tools.cs" />
+    <Compile Include="Controls\Index_foot.ascx.cs">
+      <DependentUpon>Index_foot.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Index_foot.ascx.designer.cs">
+      <DependentUpon>Index_foot.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Index_menu.ascx.cs">
+      <DependentUpon>Index_menu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Index_menu.ascx.designer.cs">
+      <DependentUpon>Index_menu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Index_search.ascx.cs">
+      <DependentUpon>Index_search.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Index_search.ascx.designer.cs">
+      <DependentUpon>Index_search.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Menu_admin.ascx.cs">
       <DependentUpon>Menu_admin.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -127,6 +159,13 @@
     </Compile>
     <Compile Include="Controls\Menu_left_user.ascx.designer.cs">
       <DependentUpon>Menu_left_user.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Shopping\SearchPage.aspx.cs">
+      <DependentUpon>SearchPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shopping\SearchPage.aspx.designer.cs">
+      <DependentUpon>SearchPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="StaffPage\GoodsEdit.aspx.cs">
       <DependentUpon>GoodsEdit.aspx</DependentUpon>
@@ -231,6 +270,7 @@
     <Content Include="font-awesome-4.5.0\scss\_stacked.scss" />
     <Content Include="font-awesome-4.5.0\scss\_variables.scss" />
     <Content Include="Common\OptionCommon.ashx" />
+    <Content Include="Common\LoginCommon.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
