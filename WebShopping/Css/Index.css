@@ -71,13 +71,45 @@ div {
 ._body_right_title {
     height: 51px;
     margin-top: 10px;
+    background: url(../Img/index/TB1m.png) left center no-repeat;
+    background-size: 200px 21px;
+    text-indent: -9999px;
 }
 
 ._body_right_content {
     width: 280px;
     height: 100px;
     margin: 14px 5px;
+    font: 12px/1.5 tahoma,arial,'Hiragino Sans GB','\5b8b\4f53',sans-serif;
 }
+
+    ._body_right_content span {
+        float: left;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+    }
+
+        ._body_right_content span img {
+            width: 100px;
+            min-height: 100px;
+        }
+
+    ._body_right_content strong {
+        display: block;
+        font-size: 14px;
+        height: 32px;
+        overflow: hidden;
+        width: 156px;
+        line-height: 32px;
+    }
+
+    ._body_right_content p {
+        line-height: 20px;
+        color: #666;
+        height: 40px;
+        overflow: hidden;
+    }
 /*脚部*/
 ._foot {
     height: 150px;
