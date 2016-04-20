@@ -1,16 +1,18 @@
 ﻿/*商城页面的样式*/
 div {
-    border: 1px solid red;
+    border: 0px solid red;
     margin: 0px auto;
 }
 /*最外层的div暂时用蓝色边框辨识*/
 ._head, ._body, ._topmenu {
-    border: 1px solid blue;
+    border: 0px solid blue;
 }
 /*头部div 最外层DIV*/
 ._head {
+    border: 1px solid red;
     height: 450px;
     width: 1210px;
+    font: 12px/1.5 tahoma,arial,"Hiragino Sans GB","宋体",sans-serif;
 }
 /*头部左边 用于大菜单*/
 ._head_left {
@@ -19,16 +21,77 @@ div {
     width: 150px;
     margin: 10px 10px;
     float: left;
+    color: white;
+    background-color: #ff6a00;
 }
+/*上面左边* 主题市场*/
+.service-hd {
+    height: 33px;
+    line-height: 33px;
+    text-indent: 10px;
+    background-color: #BC4D00;
+}
+
+._head_left ul {
+    height: 395px;
+    font-weight: bold;
+}
+
+    ._head_left ul li {
+        line-height: 30px;
+        height: 30px;
+        padding: 0px 15px;
+        position: relative;
+        font-size: 13px;
+        transition: background-color 0.2s ease 0s;
+    }
+
+        ._head_left ul li a:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        ._head_left ul li i {
+            position: absolute;
+            z-index: 1;
+            top: 9px;
+            right: 14px;
+            width: 4px;
+            height: 14px;
+            font: 400 9px/14px consolas;
+        }
 /*中间用于广告轮换*/
 ._head_middle {
+    border: 1px solid red;
     height: 430px;
     width: 720px;
     margin: 10px 10px;
     float: left;
+    position: relative;
+    overflow: hidden;
 }
 
+    ._head_middle ul {
+        height: 430px;
+        position: absolute;
+    }
+
+        ._head_middle ul li {
+            width: 720px;
+            height: 430px;
+            position: relative;
+            overflow: hidden;
+            background: #000 none repeat scroll 0% 0%;
+            float: left;
+        }
+
+            ._head_middle ul li img {
+                height: 430px;
+                width: 720px;
+            }
+
 ._head_right {
+    border: 1px solid red;
     height: 430px;
     margin: 10px 10px;
     float: left;
@@ -48,22 +111,87 @@ div {
 }
 
 ._body_left, ._body_right {
+    border: 0px solid red;
     height: 1350px;
-    margin: 25px 10px;
+    margin: 25px 0px;
     float: left;
 }
 
 
 ._body_left {
-    width: 863px;
+    width: 915px;
+    font: 12px/1.5 tahoma,arial,"Hiragino Sans GB","宋体",sans-serif;
 }
 
 ._body_left_content {
-    width: 830px;
+    border: 0px solid red;
+    width: 893px;
     height: 315px;
-    margin: 15px 15px;
+    margin: 15px 5px;
 }
 
+    /*中间左边标题图片*/
+    ._body_left_content h2 {
+        background-image: url("../Img/index/TB1OP2VLVXXXXcsXFXXXXXXXXXX-440-40.png_220x220.jpg");
+        position: relative;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 220px 20px;
+        height: 37px;
+    }
+
+._body_left_content_item {
+    width: 220px;
+    height: 258px;
+    overflow: hidden;
+    background-color: #FFF;
+    margin-bottom: 10px;
+    float: left;
+    border: 1px solid #F0F0F0;
+}
+
+    ._body_left_content_item:hover {
+        border: 1px solid #ff6a00;
+    }
+
+._body_left_content_item_title {
+    height: 18px;
+    width: 115px;
+    text-align: center;
+    margin: 10px auto;
+}
+
+._body_left_content_item_contain a {
+    float: left;
+    width: 110px;
+    height: 110px;
+    border-top: 1px solid #F0F0F0;
+    border-right: 1px solid #F0F0F0;
+    border-bottom: 1px solid #F0F0F0;
+    margin-left: -1px;
+    position: relative;
+    margin-top: -1px;
+}
+
+    ._body_left_content_item_contain a img {
+        width: 90px;
+        height: 90px;
+        padding: 10px;
+    }
+
+    ._body_left_content_item_contain a span {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        height: 20px;
+        right: 10px;
+        line-height: 20px;
+        text-align: center;
+        transition: all 0.2s ease 0s;
+        background-color: rgba(255, 255, 255, 0.8);
+        overflow: hidden;
+    }
+/*中间右边*/
 ._body_right {
     width: 290px;
 }
@@ -81,7 +209,12 @@ div {
     height: 100px;
     margin: 14px 5px;
     font: 12px/1.5 tahoma,arial,'Hiragino Sans GB','\5b8b\4f53',sans-serif;
+    border: 1px solid #fff;
 }
+
+    ._body_right_content:hover {
+        border: 1px solid #ff6a00;
+    }
 
     ._body_right_content span {
         float: left;
@@ -117,6 +250,7 @@ div {
 }
 /*搜索区*/
 ._search {
+    /*border: 1px solid red;*/
     width: 1210px;
-    height: 55px;
+    height: 65px;
 }
