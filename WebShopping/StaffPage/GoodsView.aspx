@@ -62,7 +62,7 @@
                     </table>
                 </div>
                 <div class="_data_div">
-                    <table class="_data_table" id="_datatable_goods" pagesize="15" action="query" rqurl="GoodsCommon">
+                    <table class="_data_table" id="_datatable_goods" pagesize="3" action="query" rqurl="GoodsCommon">
                         <thead>
                             <tr>
                                 <th name="gid" width="80" celclick="{'修改':'EditGoods'}"><a>序号</a></th>
